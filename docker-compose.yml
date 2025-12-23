@@ -1,0 +1,15 @@
+services:
+  datagate-landing:
+    container_name: datagate-landing
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "80"
+    restart: unless-stopped
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
