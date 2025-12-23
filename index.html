@@ -33,17 +33,23 @@
     p {
       font-size: 1.1rem;
       color: #4b5563;
+      margin-bottom: 40px;
     }
 
-    a {
-      display: inline-block;
-      margin-top: 20px;
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
       color: #2563eb;
       text-decoration: none;
       font-weight: 500;
     }
 
-    a:hover {
+    .footer-links a:hover {
       text-decoration: underline;
     }
   </style>
@@ -53,7 +59,10 @@
   <h1>DataGate</h1>
   <p>Secure and private VPN service.</p>
 
-  <a href="/privacy.html">Privacy Policy</a>
+  <div class="footer-links">
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/delete-account.html">Delete account</a>
+  </div>
 </div>
 </body>
 </html>
