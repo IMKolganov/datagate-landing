@@ -1,31 +1,32 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import styles from "./App.module.css";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { MainLayout } from "./layouts/MainLayout";
 import { HomePage } from "./pages/HomePage";
+import { DownloadPage } from "./pages/DownloadPage";
+import { ServerPage } from "./pages/ServerPage";
+import { ContactsPage } from "./pages/ContactsPage";
+import { AboutPage } from "./pages/AboutPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { DeleteAccountPage } from "./pages/DeleteAccountPage";
+import { ROUTES } from "./constants/routes";
 
 export function App(): React.JSX.Element {
     return (
-        <div className={styles.page}>
-            <Header />
+        <Routes>
+            <Route element={<MainLayout />}>
+                <Route path={ROUTES.HOME} element={<HomePage />} />
+                <Route path={ROUTES.DOWNLOAD} element={<DownloadPage />} />
+                <Route path={ROUTES.SERVER} element={<ServerPage />} />
+                <Route path={ROUTES.CONTACTS} element={<ContactsPage />} />
+                <Route path={ROUTES.ABOUT} element={<AboutPage />} />
+                <Route path={ROUTES.PRIVACY} element={<PrivacyPage />} />
+                <Route path={ROUTES.DELETE_ACCOUNT} element={<DeleteAccountPage />} />
+            </Route>
 
-            <main className={styles.main}>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/privacy" element={<PrivacyPage />} />
-                    <Route path="/delete-account" element={<DeleteAccountPage />} />
+            <Route path="/privacy.html" element={<Navigate to={ROUTES.PRIVACY} replace />} />
+            <Route path="/delete-account.html" element={<Navigate to={ROUTES.DELETE_ACCOUNT} replace />} />
 
-                    <Route path="/privacy.html" element={<Navigate to="/privacy" replace />} />
-                    <Route path="/delete-account.html" element={<Navigate to="/delete-account" replace />} />
-
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </main>
-
-            <Footer />
-        </div>
+            <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
+        </Routes>
     );
 }

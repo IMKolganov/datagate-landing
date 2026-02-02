@@ -3,16 +3,15 @@ import styles from "./HomePage.module.css";
 
 export function HomePage(): React.JSX.Element {
     return (
-        <div className={styles.container}>
-            <div className={styles.header}>
+        <>
+            <section className={styles.hero}>
                 <h1 className={styles.title}>DataGate</h1>
-
                 <p className={styles.subtitle}>
                     Secure, open-source OpenVPN ecosystem with a management dashboard.
                 </p>
-            </div>
+            </section>
 
-            <div className={styles.content}>
+            <div className={`${styles.content} prose`}>
                 <p>
                     <strong>DataGate</strong> is a secure OpenVPN-based solution with a strong focus on privacy,
                     transparency, and modern infrastructure. The entire codebase is fully open source,
@@ -29,7 +28,6 @@ export function HomePage(): React.JSX.Element {
                         href="https://github.com/IMKolganov/DataGateAndroid"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles.link}
                     >
                         https://github.com/IMKolganov/DataGateAndroid
                     </a>
@@ -45,7 +43,6 @@ export function HomePage(): React.JSX.Element {
                         href="https://github.com/IMKolganov/OpenVpnGateMonitor"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles.link}
                     >
                         https://github.com/IMKolganov/OpenVpnGateMonitor
                     </a>
@@ -63,6 +60,6 @@ export function HomePage(): React.JSX.Element {
                     infrastructure without relying on closed or opaque solutions.
                 </p>
             </div>
-        </div>
+        </>
     );
 }

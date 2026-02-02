@@ -9,16 +9,17 @@
     text-align: center;
 }
 
-.wrapper .muted {
-    display: block;
+.subtitle {
+    margin: 0 0 var(--space-6) 0;
+    font-size: 1.125rem;
+    color: var(--text-muted);
     text-align: center;
-    margin-bottom: var(--space-5);
 }
 
-.prose .panel {
-    margin: var(--space-3) 0;
+.content {
+    line-height: 1.6;
 }
 
-.prose .panel p:last-child {
+.content p:last-child {
     margin-bottom: 0;
 }

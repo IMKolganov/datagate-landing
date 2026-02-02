@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Footer.module.css";
+import { ROUTES } from "../constants/routes";
 import { appVersion } from "../version";
+import styles from "./Footer.module.css";
 
 export function Footer(): React.JSX.Element {
     const year = new Date().getFullYear();
@@ -9,13 +10,13 @@ export function Footer(): React.JSX.Element {
     return (
         <footer className={styles.footer}>
             <div className={styles.inner}>
-                <nav className={styles.links}>
-                    <Link className={styles.link} to="/">Home</Link>
-                    <Link className={styles.link} to="/privacy">Privacy Policy</Link>
-                    <Link className={styles.link} to="/delete-account">Delete account</Link>
-                </nav>
-
-                <p className={styles.meta}>© {year} DataGate v.{appVersion}</p>
+                <p className={styles.meta}>
+                    <Link to={ROUTES.PRIVACY} className={styles.link}>
+                        Privacy Policy
+                    </Link>
+                    {" · "}
+                    © {year} DataGate v.{appVersion}
+                </p>
             </div>
         </footer>
     );
