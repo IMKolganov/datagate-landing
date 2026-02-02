@@ -19,6 +19,11 @@
 
 .content {
     line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+.content a {
+    overflow-wrap: anywhere;
 }
 
 .content p:last-child {

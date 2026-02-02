@@ -8,7 +8,7 @@ export function Footer(): React.JSX.Element {
     const year = new Date().getFullYear();
 
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} role="contentinfo">
             <div className={styles.inner}>
                 <p className={styles.meta}>
                     <Link to={ROUTES.PRIVACY} className={styles.link}>

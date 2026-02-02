@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import styles from "./Header.module.css";
@@ -12,8 +12,15 @@ const NAV_ITEMS: { to: (typeof ROUTES)[keyof typeof ROUTES]; label: string }[] =
 ];
 
 export function Header(): React.JSX.Element {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const closeMenu = () => setMenuOpen(false);
+
     return (
-        <header className={styles.header}>
+        <header
+            className={styles.header}
+            data-menu-open={menuOpen || undefined}
+        >
             <div className={styles.inner}>
                 <Link to={ROUTES.HOME} className={styles.logo}>
                     <img
@@ -24,7 +31,26 @@ export function Header(): React.JSX.Element {
                     <span className={styles.logoText}>DataGate</span>
                 </Link>
 
-                <nav className={styles.nav}>
+                <button
+                    type="button"
+                    className={styles.hamburger}
+                    onClick={() => setMenuOpen((v) => !v)}
+                    aria-expanded={menuOpen}
+                    aria-controls="main-nav"
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
+                >
+                    <span className={styles.hamburgerIcon}>
+                        <span className={styles.line} />
+                        <span className={styles.line} />
+                        <span className={styles.line} />
+                    </span>
+                </button>
+
+                <nav
+                    id="main-nav"
+                    className={styles.nav}
+                    aria-label="Main navigation"
+                >
                     {NAV_ITEMS.map(({ to, label }) => (
                         <NavLink
                             key={to}
@@ -32,6 +58,7 @@ export function Header(): React.JSX.Element {
                             className={({ isActive }) =>
                                 isActive ? styles.linkActive : styles.link
                             }
+                            onClick={closeMenu}
                         >
                             {label}
                         </NavLink>

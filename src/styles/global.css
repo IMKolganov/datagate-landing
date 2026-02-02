@@ -119,6 +119,10 @@ a:focus-visible {
     max-width: 100%;
 }
 
+.prose a {
+    overflow-wrap: anywhere;
+}
+
 .prose h2 {
     margin-top: var(--space-5);
     padding-bottom: var(--space-2);
