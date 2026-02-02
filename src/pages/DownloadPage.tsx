@@ -12,7 +12,7 @@ const DOWNLOADS: {
         id: "windows",
         name: "Windows",
         description: "Desktop client for Windows 10/11",
-        href: "https://github.com/IMKolganov/DataGate/releases",
+        href: "https://github.com/IMKolganov/DataGateWin/releases/latest",
         label: "Download",
     },
     {
