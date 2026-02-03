@@ -22,6 +22,12 @@ const DOWNLOADS: {
         label: "Coming soon",
     },
     {
+        id: "macos",
+        name: "macOS",
+        description: "Desktop client for Mac",
+        label: "Coming soon",
+    },
+    {
         id: "android",
         name: "Android",
         description: "Mobile app — Google Play or APK",
