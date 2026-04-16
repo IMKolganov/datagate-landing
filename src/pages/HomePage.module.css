@@ -1,20 +1,160 @@
-.hero {
+.landing {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+.slide {
+    width: 100%;
+    padding: clamp(48px, 7vw, 88px) 24px;
+}
+
+.slideInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.heroSlide {
     text-align: center;
-    margin-bottom: var(--space-6);
+    background:
+        radial-gradient(circle at top, rgba(88, 166, 255, 0.16), transparent 40%),
+        linear-gradient(180deg, rgba(18, 23, 30, 0.94), rgba(13, 17, 23, 0.98));
+}
+
+.highlightsSlide {
+    background: linear-gradient(180deg, rgba(15, 20, 27, 0.98), rgba(13, 17, 23, 1));
+}
+
+.overviewSlide {
+    background: linear-gradient(180deg, rgba(17, 21, 28, 1), rgba(12, 16, 22, 1));
+}
+
+.repositoriesSlide {
+    background: linear-gradient(180deg, rgba(14, 18, 24, 1), rgba(10, 14, 19, 1));
+}
+
+.serverSlide {
+    background: linear-gradient(180deg, rgba(12, 16, 22, 1), rgba(13, 17, 23, 1));
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    margin-bottom: var(--space-3);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ecbff;
+    background: rgba(56, 139, 253, 0.14);
+    border: 1px solid rgba(88, 166, 255, 0.24);
+    border-radius: 999px;
 }
 
 .title {
-    font-size: 2.5rem;
+    max-width: 13ch;
+    margin: 0 auto var(--space-3);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 600;
-    margin: 0 0 var(--space-2) 0;
     letter-spacing: -0.025em;
+    line-height: 1.05;
 }
 
 .subtitle {
-    margin: 0;
+    max-width: 700px;
+    margin: 0 auto;
     font-size: 1.125rem;
     color: var(--text-muted);
     line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-5);
+}
+
+.primaryAction,
+.secondaryAction {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.primaryAction {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.secondaryAction {
+    color: var(--text-default);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-default);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+}
+
+.highlightCard {
+    padding: var(--space-4);
+    background: linear-gradient(180deg, rgba(24, 29, 37, 0.96), rgba(14, 18, 24, 0.96));
+    border-radius: 22px;
+}
+
+.highlightTitle {
+    margin-bottom: var(--space-2);
+    font-size: 1.125rem;
+}
+
+.highlightText {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.overviewLead,
+.repositoriesHeader {
+    margin-bottom: var(--space-4);
+}
+
+.sectionLabel {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ecbff;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.15;
 }
 
 .content {
@@ -28,4 +168,125 @@
 
 .content p:last-child {
     margin-bottom: 0;
+}
+
+.repoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+}
+
+.serverGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+}
+
+.repoCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 220px;
+    padding: var(--space-4);
+    background: linear-gradient(180deg, rgba(22, 27, 34, 0.95), rgba(10, 14, 19, 0.98));
+    border-radius: 22px;
+}
+
+.repoName {
+    margin-bottom: var(--space-2);
+    font-size: 1.125rem;
+}
+
+.repoDescription {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.repoLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 42px;
+    padding: 0 16px;
+    color: var(--text-default);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-default);
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+.repoLink:hover {
+    color: #ffffff;
+    border-color: rgba(88, 166, 255, 0.35);
+    background: rgba(56, 139, 253, 0.12);
+    text-decoration: none;
+}
+
+.serverFeature {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: 0;
+}
+
+.serverFeatureContent {
+    max-width: 760px;
+}
+
+.serverFeatureTitle {
+    margin-bottom: var(--space-2);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.serverFeatureText {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.serverFeatureLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    color: var(--text-default);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.serverFeatureLink:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .highlights,
+    .repoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .serverFeature {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .actions {
+        flex-direction: column;
+    }
+
+    .primaryAction,
+    .secondaryAction {
+        width: 100%;
+    }
 }

@@ -31,8 +31,17 @@
     padding: 32px 24px 48px;
 }
 
+.mainFullBleed {
+    flex: 1;
+    padding: 0 0 48px;
+}
+
 .container {
     max-width: var(--content-width);
     margin: 0 auto;
+    width: 100%;
+}
+
+.containerFullBleed {
     width: 100%;
 }
