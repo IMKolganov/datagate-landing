@@ -1,5 +1,6 @@
 .header {
     position: relative;
+    z-index: 40;
     background:
         linear-gradient(180deg, rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.76));
     border-bottom: 1px solid rgba(201, 209, 217, 0.08);
@@ -7,6 +8,7 @@
 }
 
 .inner {
+    position: relative;
     max-width: 1280px;
     margin: 0 auto;
     padding: 18px var(--space-4);
@@ -76,6 +78,8 @@
 }
 
 .hamburger {
+    position: relative;
+    z-index: 52;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,6 +141,8 @@
 }
 
 .navShell {
+    position: relative;
+    z-index: 50;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -335,21 +341,29 @@
         top: calc(100% + 10px);
         left: var(--space-3);
         right: var(--space-3);
+        z-index: 60;
         flex-direction: column;
         align-items: stretch;
         gap: 12px;
-        padding: 12px;
+        padding: 0;
         background: rgba(22, 27, 34, 0.98);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 16px;
         box-shadow: 0 20px 40px rgba(1, 4, 9, 0.32);
         max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
         overflow: hidden;
-        transition: max-height 0.25s ease, padding 0.25s ease;
+        transition: max-height 0.25s ease, padding 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
     }
 
     .header[data-menu-open] .navShell {
         max-height: 520px;
+        padding: 12px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav {
@@ -386,6 +400,7 @@
 
     .languageMenu {
         position: static;
+        display: none;
         margin-top: 8px;
         opacity: 0;
         pointer-events: none;
@@ -394,6 +409,7 @@
     }
 
     .languageDropdown[data-open] .languageMenu {
+        display: flex;
         opacity: 1;
         pointer-events: auto;
     }

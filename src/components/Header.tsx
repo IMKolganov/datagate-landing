@@ -48,7 +48,17 @@ export function Header(): React.JSX.Element {
                 <button
                     type="button"
                     className={styles.hamburger}
-                    onClick={() => setMenuOpen((v) => !v)}
+                    onClick={() => {
+                        setMenuOpen((v) => {
+                            const next = !v;
+
+                            if (!next) {
+                                setLanguageOpen(false);
+                            }
+
+                            return next;
+                        });
+                    }}
                     aria-expanded={menuOpen}
                     aria-controls="main-nav"
                     aria-label={menuOpen ? t.header.menuClose : t.header.menuOpen}
