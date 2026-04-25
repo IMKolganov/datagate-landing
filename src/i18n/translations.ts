@@ -250,7 +250,14 @@ export const translations: Record<Language, Translation> = {
                 { id: "linux", name: "Linux", description: "Desktop client для Linux", href: commonRepos.linuxReleases, label: "Релизы" },
                 { id: "macos", name: "macOS", description: "Desktop client для Mac", label: "Скоро" },
                 { id: "android", name: "Android", description: "Мобильное приложение — APK и релизы GitHub", href: commonRepos.androidReleases, label: "Релизы" },
-                { id: "ios", name: "iOS", description: "Мобильное приложение для iPhone и iPad", label: "Недоступно" },
+                {
+                    id: "ios",
+                    name: "iOS",
+                    description:
+                        "На текущий момент я не могу опубликовать приложение DataGate. Владельцам iPhone просьба использовать XRay-клиенты, доступные в App Store. Для получения доступа пройдите по ссылке.",
+                    href: "https://dash.datagateapp.com/xray/",
+                    label: "Перейти по ссылке",
+                },
             ],
         },
         server: {
@@ -452,7 +459,14 @@ export const translations: Record<Language, Translation> = {
                 { id: "linux", name: "Linux", description: "Desktop client for Linux", href: commonRepos.linuxReleases, label: "Releases" },
                 { id: "macos", name: "macOS", description: "Desktop client for Mac", label: "Coming soon" },
                 { id: "android", name: "Android", description: "Mobile app — APK and GitHub releases", href: commonRepos.androidReleases, label: "Releases" },
-                { id: "ios", name: "iOS", description: "Mobile app for iPhone and iPad", label: "Unavailable" },
+                {
+                    id: "ios",
+                    name: "iOS",
+                    description:
+                        "At the moment I cannot publish the DataGate app. iPhone owners are asked to use XRay clients available in the App Store. To get access, follow the link.",
+                    href: "https://dash.datagateapp.com/xray/",
+                    label: "Open XRay",
+                },
             ],
         },
         server: {
@@ -654,7 +668,14 @@ export const translations: Record<Language, Translation> = {
                 { id: "linux", name: "Linux", description: "Client desktop pour Linux", href: commonRepos.linuxReleases, label: "Publications" },
                 { id: "macos", name: "macOS", description: "Client desktop pour Mac", label: "Bientôt disponible" },
                 { id: "android", name: "Android", description: "Application mobile — APK et publications GitHub", href: commonRepos.androidReleases, label: "Publications" },
-                { id: "ios", name: "iOS", description: "Application mobile pour iPhone et iPad", label: "Indisponible" },
+                {
+                    id: "ios",
+                    name: "iOS",
+                    description:
+                        "Pour le moment, je ne peux pas publier l'application DataGate. Les utilisateurs d'iPhone sont priés d'utiliser les clients XRay disponibles sur l'App Store. Pour obtenir l'accès, suivez le lien.",
+                    href: "https://dash.datagateapp.com/xray/",
+                    label: "Ouvrir XRay",
+                },
             ],
         },
         server: {
@@ -856,7 +877,14 @@ export const translations: Record<Language, Translation> = {
                 { id: "linux", name: "Linux", description: "Desktop-Client für Linux", href: commonRepos.linuxReleases, label: "Releases" },
                 { id: "macos", name: "macOS", description: "Desktop-Client für Mac", label: "Demnächst" },
                 { id: "android", name: "Android", description: "Mobile App — APK und GitHub-Releases", href: commonRepos.androidReleases, label: "Releases" },
-                { id: "ios", name: "iOS", description: "Mobile App für iPhone und iPad", label: "Nicht verfügbar" },
+                {
+                    id: "ios",
+                    name: "iOS",
+                    description:
+                        "Aktuell kann ich die DataGate-App nicht im App Store veröffentlichen. iPhone-Nutzer werden gebeten, XRay-Clients aus dem App Store zu verwenden. Für den Zugriff folgen Sie dem Link.",
+                    href: "https://dash.datagateapp.com/xray/",
+                    label: "XRay öffnen",
+                },
             ],
         },
         server: {
@@ -1058,7 +1086,14 @@ export const translations: Record<Language, Translation> = {
                 { id: "linux", name: "Linux", description: "Desktop client για Linux", href: commonRepos.linuxReleases, label: "Releases" },
                 { id: "macos", name: "macOS", description: "Desktop client για Mac", label: "Σύντομα" },
                 { id: "android", name: "Android", description: "Mobile app — APK και GitHub releases", href: commonRepos.androidReleases, label: "Releases" },
-                { id: "ios", name: "iOS", description: "Mobile app για iPhone και iPad", label: "Μη διαθέσιμο" },
+                {
+                    id: "ios",
+                    name: "iOS",
+                    description:
+                        "Προς το παρόν δεν μπορώ να δημοσιεύσω την εφαρμογή DataGate στο App Store. Οι χρήστες iPhone παρακαλούνται να χρησιμοποιούν XRay clients που είναι διαθέσιμοι στο App Store. Για πρόσβαση, ακολουθήστε τον σύνδεσμο.",
+                    href: "https://dash.datagateapp.com/xray/",
+                    label: "Άνοιγμα XRay",
+                },
             ],
         },
         server: {
