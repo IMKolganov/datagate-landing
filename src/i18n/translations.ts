@@ -216,9 +216,9 @@ export const translations: Record<Language, Translation> = {
             overviewLabel: "Почему DataGate",
             overviewTitle: "Для команд, которым важны прозрачность и контроль над VPN.",
             overviewParagraphs: [
-                "DataGate — это безопасное решение на базе OpenVPN с упором на приватность, прозрачность и современную инфраструктуру. Весь код проекта открыт, поэтому систему можно проверять, разворачивать и использовать независимо.",
-                "DataGate также включает web-панель для управления VPN-серверами, пользователями, сертификатами и соединениями в реальном времени.",
-                "Сервер можно размещать за WSS-прокси (WebSocket Secure), чтобы обходить ограничения сети и добавлять дополнительный транспортный уровень защиты.",
+                "DataGate — это безопасное решение на базе OpenVPN и Xray с упором на приватность, прозрачность и современную инфраструктуру. Весь код проекта открыт, поэтому систему можно проверять, разворачивать и использовать независимо.",
+                "DataGate также включает web-панель для управления серверами OpenVPN и Xray, пользователями, сертификатами и соединениями в реальном времени.",
+                "Серверы OpenVPN и Xray можно размещать за WSS-прокси (WebSocket Secure), чтобы обходить ограничения сети и добавлять дополнительный транспортный уровень защиты.",
                 "Проект рассчитан на разработчиков и команды, которым нужен полный контроль над VPN-инфраструктурой без закрытых решений.",
             ],
             clientsLabel: "Клиенты",
@@ -379,8 +379,8 @@ export const translations: Record<Language, Translation> = {
         about: {
             title: "О DataGate",
             paragraphs: [
-                "DataGate — это безопасная открытая экосистема OpenVPN с панелью управления. Проект ориентирован на приватность, прозрачность и современную инфраструктуру. Исходный код полностью открыт, поэтому систему можно проверять, разворачивать и использовать независимо.",
-                "DataGate включает Android-приложение, desktop-клиенты для Windows и Linux, а также web-панель для управления VPN-серверами и пользователями.",
+                "DataGate — это безопасная открытая экосистема OpenVPN и Xray с панелью управления. Проект ориентирован на приватность, прозрачность и современную инфраструктуру. Исходный код полностью открыт, поэтому систему можно проверять, разворачивать и использовать независимо.",
+                "DataGate включает Android-приложение, desktop-клиенты для Windows и Linux, а также web-панель для управления серверами OpenVPN и Xray и пользователями.",
             ],
             privacyLead: "Подробнее о том, как обрабатываются данные, смотрите в ",
             privacyLink: "Политике конфиденциальности",
@@ -502,9 +502,9 @@ export const translations: Record<Language, Translation> = {
             overviewLabel: "Why DataGate",
             overviewTitle: "For teams that value transparency and full VPN control.",
             overviewParagraphs: [
-                "DataGate is a secure OpenVPN-based solution with a strong focus on privacy, transparency, and modern infrastructure. The entire codebase is fully open source, allowing anyone to audit, verify, and deploy the system independently.",
-                "DataGate also provides a web-based dashboard for managing VPN servers, users, certificates, and connections in real time.",
-                "You can deploy your own OpenVPN server using DataGate and enhance security by running it behind a WSS (WebSocket Secure) proxy. This approach helps bypass restrictive networks and adds an additional transport-layer security mechanism.",
+                "DataGate is a secure solution built on OpenVPN and Xray with a strong focus on privacy, transparency, and modern infrastructure. The entire codebase is fully open source, allowing anyone to audit, verify, and deploy the system independently.",
+                "DataGate also provides a web-based dashboard for managing OpenVPN and Xray servers, users, certificates, and connections in real time.",
+                "You can deploy OpenVPN and Xray servers with DataGate and enhance security by running them behind a WSS (WebSocket Secure) proxy. This approach helps bypass restrictive networks and adds an additional transport-layer security mechanism.",
                 "DataGate is designed for developers and teams who want full control over their VPN infrastructure without relying on closed or opaque solutions.",
             ],
             clientsLabel: "Clients",
@@ -665,8 +665,8 @@ export const translations: Record<Language, Translation> = {
         about: {
             title: "About DataGate",
             paragraphs: [
-                "DataGate is a secure, open-source OpenVPN ecosystem with a management dashboard. It focuses on privacy, transparency, and modern infrastructure. The project is fully open source so anyone can audit, verify, and deploy it independently.",
-                "DataGate includes a mobile app for Android, desktop clients for Windows and Linux, and a web dashboard for managing VPN servers and users.",
+                "DataGate is a secure, open-source OpenVPN and Xray ecosystem with a management dashboard. It focuses on privacy, transparency, and modern infrastructure. The project is fully open source so anyone can audit, verify, and deploy it independently.",
+                "DataGate includes a mobile app for Android, desktop clients for Windows and Linux, and a web dashboard for managing OpenVPN and Xray servers and users.",
             ],
             privacyLead: "For details on how we handle your data, see our ",
             privacyLink: "Privacy Policy",
@@ -788,9 +788,9 @@ export const translations: Record<Language, Translation> = {
             overviewLabel: "Pourquoi DataGate",
             overviewTitle: "Pour les équipes qui privilégient la transparence et le contrôle VPN.",
             overviewParagraphs: [
-                "DataGate est une solution sécurisée basée sur OpenVPN, centrée sur la confidentialité, la transparence et une infrastructure moderne. L'ensemble du code est open source, ce qui permet un audit, une vérification et un déploiement indépendants.",
-                "DataGate propose également un tableau de bord web pour gérer les serveurs VPN, les utilisateurs, les certificats et les connexions en temps réel.",
-                "Vous pouvez déployer votre propre serveur OpenVPN avec DataGate et renforcer la sécurité en le plaçant derrière un proxy WSS (WebSocket Secure). Cela aide à contourner les réseaux restrictifs et ajoute une couche de sécurité transport.",
+                "DataGate est une solution sécurisée basée sur OpenVPN et Xray, centrée sur la confidentialité, la transparence et une infrastructure moderne. L'ensemble du code est open source, ce qui permet un audit, une vérification et un déploiement indépendants.",
+                "DataGate propose également un tableau de bord web pour gérer les serveurs OpenVPN et Xray, les utilisateurs, les certificats et les connexions en temps réel.",
+                "Vous pouvez déployer des serveurs OpenVPN et Xray avec DataGate et renforcer la sécurité en les plaçant derrière un proxy WSS (WebSocket Secure). Cela aide à contourner les réseaux restrictifs et ajoute une couche de sécurité transport.",
                 "DataGate s'adresse aux développeurs et aux équipes qui veulent garder un contrôle total de leur infrastructure VPN sans dépendre de solutions fermées.",
             ],
             clientsLabel: "Clients",
@@ -924,8 +924,8 @@ export const translations: Record<Language, Translation> = {
         about: {
             title: "À propos de DataGate",
             paragraphs: [
-                "DataGate est un écosystème OpenVPN sécurisé et open source avec un tableau de bord d'administration. Le projet met l'accent sur la confidentialité, la transparence et une infrastructure moderne. Le code source est entièrement ouvert, ce qui permet un audit, une vérification et un déploiement indépendants.",
-                "DataGate comprend une application Android, des clients desktop pour Windows et Linux, ainsi qu'un tableau de bord web pour gérer les serveurs VPN et les utilisateurs.",
+                "DataGate est un écosystème OpenVPN et Xray sécurisé et open source avec un tableau de bord d'administration. Le projet met l'accent sur la confidentialité, la transparence et une infrastructure moderne. Le code source est entièrement ouvert, ce qui permet un audit, une vérification et un déploiement indépendants.",
+                "DataGate comprend une application Android, des clients desktop pour Windows et Linux, ainsi qu'un tableau de bord web pour gérer les serveurs OpenVPN et Xray et les utilisateurs.",
             ],
             privacyLead: "Pour savoir comment nous traitons vos données, consultez notre ",
             privacyLink: "Politique de confidentialité",
@@ -1047,9 +1047,9 @@ export const translations: Record<Language, Translation> = {
             overviewLabel: "Warum DataGate",
             overviewTitle: "Für Teams, denen Transparenz und VPN-Kontrolle wichtig sind.",
             overviewParagraphs: [
-                "DataGate ist eine sichere OpenVPN-basierte Lösung mit starkem Fokus auf Datenschutz, Transparenz und moderne Infrastruktur. Die gesamte Codebasis ist Open Source und kann unabhängig geprüft, verifiziert und bereitgestellt werden.",
-                "DataGate bietet außerdem ein webbasiertes Dashboard zur Verwaltung von VPN-Servern, Benutzern, Zertifikaten und Verbindungen in Echtzeit.",
-                "Sie können Ihren eigenen OpenVPN-Server mit DataGate betreiben und die Sicherheit erhöhen, indem Sie ihn hinter einem WSS-Proxy (WebSocket Secure) ausführen. Das hilft in restriktiven Netzwerken und fügt eine zusätzliche Transportschicht hinzu.",
+                "DataGate ist eine sichere Lösung auf Basis von OpenVPN und Xray mit starkem Fokus auf Datenschutz, Transparenz und moderne Infrastruktur. Die gesamte Codebasis ist Open Source und kann unabhängig geprüft, verifiziert und bereitgestellt werden.",
+                "DataGate bietet außerdem ein webbasiertes Dashboard zur Verwaltung von OpenVPN- und Xray-Servern, Benutzern, Zertifikaten und Verbindungen in Echtzeit.",
+                "Sie können OpenVPN- und Xray-Server mit DataGate betreiben und die Sicherheit erhöhen, indem Sie sie hinter einem WSS-Proxy (WebSocket Secure) ausführen. Das hilft in restriktiven Netzwerken und fügt eine zusätzliche Transportschicht hinzu.",
                 "DataGate richtet sich an Entwickler und Teams, die volle Kontrolle über ihre VPN-Infrastruktur möchten, ohne auf geschlossene Lösungen angewiesen zu sein.",
             ],
             clientsLabel: "Clients",
@@ -1183,8 +1183,8 @@ export const translations: Record<Language, Translation> = {
         about: {
             title: "Über DataGate",
             paragraphs: [
-                "DataGate ist ein sicheres Open-Source-OpenVPN-Ökosystem mit Verwaltungs-Dashboard. Das Projekt setzt auf Datenschutz, Transparenz und moderne Infrastruktur. Der gesamte Quellcode ist offen, sodass das System unabhängig geprüft, verifiziert und bereitgestellt werden kann.",
-                "DataGate umfasst eine Android-App, Desktop-Clients für Windows und Linux sowie ein Web-Dashboard zur Verwaltung von VPN-Servern und Benutzern.",
+                "DataGate ist ein sicheres Open-Source-Ökosystem für OpenVPN und Xray mit Verwaltungs-Dashboard. Das Projekt setzt auf Datenschutz, Transparenz und moderne Infrastruktur. Der gesamte Quellcode ist offen, sodass das System unabhängig geprüft, verifiziert und bereitgestellt werden kann.",
+                "DataGate umfasst eine Android-App, Desktop-Clients für Windows und Linux sowie ein Web-Dashboard zur Verwaltung von OpenVPN- und Xray-Servern und Benutzern.",
             ],
             privacyLead: "Details zum Umgang mit Ihren Daten finden Sie in unserer ",
             privacyLink: "Datenschutzerklärung",
@@ -1306,9 +1306,9 @@ export const translations: Record<Language, Translation> = {
             overviewLabel: "Γιατί DataGate",
             overviewTitle: "Για ομάδες που εκτιμούν τη διαφάνεια και τον πλήρη έλεγχο VPN.",
             overviewParagraphs: [
-                "Το DataGate είναι μια ασφαλής λύση βασισμένη στο OpenVPN με έμφαση στην ιδιωτικότητα, τη διαφάνεια και τη σύγχρονη υποδομή. Ολόκληρος ο κώδικας είναι open source, ώστε να μπορεί να ελεγχθεί και να εγκατασταθεί ανεξάρτητα.",
-                "Το DataGate προσφέρει επίσης web dashboard για διαχείριση VPN servers, χρηστών, πιστοποιητικών και συνδέσεων σε πραγματικό χρόνο.",
-                "Μπορείτε να αναπτύξετε τον δικό σας OpenVPN server με το DataGate και να αυξήσετε την ασφάλεια τοποθετώντας τον πίσω από WSS proxy (WebSocket Secure). Αυτό βοηθά σε περιοριστικά δίκτυα και προσθέτει ένα επιπλέον transport layer.",
+                "Το DataGate είναι μια ασφαλής λύση βασισμένη σε OpenVPN και Xray με έμφαση στην ιδιωτικότητα, τη διαφάνεια και τη σύγχρονη υποδομή. Ολόκληρος ο κώδικας είναι open source, ώστε να μπορεί να ελεγχθεί και να εγκατασταθεί ανεξάρτητα.",
+                "Το DataGate προσφέρει επίσης web dashboard για διαχείριση servers OpenVPN και Xray, χρηστών, πιστοποιητικών και συνδέσεων σε πραγματικό χρόνο.",
+                "Μπορείτε να αναπτύξετε servers OpenVPN και Xray με το DataGate και να αυξήσετε την ασφάλεια τοποθετώντας τους πίσω από WSS proxy (WebSocket Secure). Αυτό βοηθά σε περιοριστικά δίκτυα και προσθέτει ένα επιπλέον transport layer.",
                 "Το DataGate απευθύνεται σε developers και ομάδες που θέλουν πλήρη έλεγχο της VPN υποδομής τους χωρίς κλειστές λύσεις.",
             ],
             clientsLabel: "Clients",
@@ -1442,8 +1442,8 @@ export const translations: Record<Language, Translation> = {
         about: {
             title: "Σχετικά με το DataGate",
             paragraphs: [
-                "Το DataGate είναι ένα ασφαλές, open-source οικοσύστημα OpenVPN με dashboard διαχείρισης. Εστιάζει στην ιδιωτικότητα, τη διαφάνεια και τη σύγχρονη υποδομή. Ο κώδικας είναι πλήρως ανοιχτός, ώστε να μπορεί να ελεγχθεί και να αναπτυχθεί ανεξάρτητα.",
-                "Το DataGate περιλαμβάνει Android εφαρμογή, desktop clients για Windows και Linux, καθώς και web dashboard για διαχείριση VPN servers και χρηστών.",
+                "Το DataGate είναι ένα ασφαλές, open-source οικοσύστημα OpenVPN και Xray με dashboard διαχείρισης. Εστιάζει στην ιδιωτικότητα, τη διαφάνεια και τη σύγχρονη υποδομή. Ο κώδικας είναι πλήρως ανοιχτός, ώστε να μπορεί να ελεγχθεί και να αναπτυχθεί ανεξάρτητα.",
+                "Το DataGate περιλαμβάνει Android εφαρμογή, desktop clients για Windows και Linux, καθώς και web dashboard για διαχείριση servers OpenVPN και Xray και χρηστών.",
             ],
             privacyLead: "Για λεπτομέρειες σχετικά με το πώς χειριζόμαστε τα δεδομένα σας, δείτε την ",
             privacyLink: "Πολιτική απορρήτου",
