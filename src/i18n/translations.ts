@@ -38,6 +38,8 @@ export type Translation = {
         nav: NavLabels;
         github: string;
         getDataGate: string;
+        themeLight: string;
+        themeDark: string;
     };
     footer: {
         statement: string;
@@ -187,6 +189,8 @@ export const translations: Record<Language, Translation> = {
             },
             github: "GitHub",
             getDataGate: "Скачать",
+            themeLight: "Светлая тема",
+            themeDark: "Тёмная тема",
         },
         footer: {
             statement: "Открытые клиенты и серверные инструменты для команд, которым нужен полный контроль над VPN.",
@@ -475,6 +479,8 @@ export const translations: Record<Language, Translation> = {
             },
             github: "GitHub",
             getDataGate: "Get DataGate",
+            themeLight: "Light theme",
+            themeDark: "Dark theme",
         },
         footer: {
             statement: "Secure, open-source clients and server tooling for teams that want full VPN control.",
@@ -763,6 +769,8 @@ export const translations: Record<Language, Translation> = {
             },
             github: "GitHub",
             getDataGate: "Télécharger",
+            themeLight: "Thème clair",
+            themeDark: "Thème sombre",
         },
         footer: {
             statement: "Clients open source et outils serveur pour les équipes qui veulent un contrôle total du VPN.",
@@ -1024,6 +1032,8 @@ export const translations: Record<Language, Translation> = {
             },
             github: "GitHub",
             getDataGate: "Download",
+            themeLight: "Helles Design",
+            themeDark: "Dunkles Design",
         },
         footer: {
             statement: "Open-Source-Clients und Server-Tools für Teams, die vollständige Kontrolle über ihr VPN wollen.",
@@ -1285,6 +1295,8 @@ export const translations: Record<Language, Translation> = {
             },
             github: "GitHub",
             getDataGate: "Λήψη",
+            themeLight: "Φωτεινό θέμα",
+            themeDark: "Σκοτεινό θέμα",
         },
         footer: {
             statement: "Open-source clients και server εργαλεία για ομάδες που θέλουν πλήρη έλεγχο του VPN.",

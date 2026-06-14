@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { Language, SUPPORTED_LANGUAGES } from "../i18n/translations";
+import { useTheme } from "../theme/ThemeProvider";
 import styles from "./Header.module.css";
 
 const LANGUAGE_LABELS: Record<Language, string> = {
@@ -17,6 +18,8 @@ export function Header(): React.JSX.Element {
     const [menuOpen, setMenuOpen] = useState(false);
     const [languageOpen, setLanguageOpen] = useState(false);
     const { language, setLanguage, t } = useLanguage();
+    const { theme, toggleTheme } = useTheme();
+    const themeLabel = theme === "dark" ? t.header.themeLight : t.header.themeDark;
 
     const closeMenu = () => {
         setMenuOpen(false);
@@ -85,6 +88,17 @@ export function Header(): React.JSX.Element {
                     </div>
 
                     <div className={styles.actions}>
+                        <button
+                            type="button"
+                            className={styles.themeToggle}
+                            onClick={toggleTheme}
+                            aria-label={themeLabel}
+                            title={themeLabel}
+                        >
+                            <span className={styles.themeIcon} aria-hidden="true">
+                                {theme === "dark" ? "☀" : "☾"}
+                            </span>
+                        </button>
                         <div
                             className={styles.languageDropdown}
                             data-open={languageOpen || undefined}

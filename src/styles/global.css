@@ -1,37 +1,83 @@
-/* GitHub Dark theme – design tokens */
-:root {
-    /* Backgrounds */
+/* Theme tokens – dark default */
+:root,
+[data-theme="dark"] {
+    color-scheme: dark;
+
     --bg-default: #0d1117;
     --bg-muted: #161b22;
     --bg-subtle: #21262d;
     --bg-inset: #010409;
 
-    /* Text */
     --text-default: #c9d1d9;
     --text-muted: #8b949e;
     --text-faint: #6e7681;
+    --text-strong: #ffffff;
 
-    /* Accent / Links */
     --accent-fg: #58a6ff;
     --accent-emphasis: #1f6feb;
+    --accent-soft-fg: #9ecbff;
+    --accent-chip-bg: rgba(56, 139, 253, 0.14);
+    --accent-chip-border: rgba(88, 166, 255, 0.24);
+    --accent-btn-bg: rgba(56, 139, 253, 0.18);
+    --accent-btn-border: rgba(88, 166, 255, 0.35);
+    --accent-btn-bg-hover: rgba(56, 139, 253, 0.28);
+    --accent-btn-border-hover: rgba(88, 166, 255, 0.5);
 
-    /* Borders */
     --border-default: #30363d;
     --border-muted: #21262d;
+    --border-header: rgba(201, 209, 217, 0.08);
+    --border-footer: rgba(88, 166, 255, 0.12);
+    --border-image: rgba(255, 255, 255, 0.06);
 
-    /* Success, danger, etc. */
-    --success-fg: #3fb950;
-    --danger-fg: #f85149;
+    --surface-hover: rgba(255, 255, 255, 0.04);
+    --surface-hover-strong: rgba(255, 255, 255, 0.06);
+    --surface-active: rgba(255, 255, 255, 0.08);
+    --surface-active-strong: rgba(255, 255, 255, 0.1);
+    --surface-subtle: rgba(255, 255, 255, 0.03);
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --surface-border-strong: rgba(255, 255, 255, 0.12);
+    --surface-raised: rgba(22, 27, 34, 0.98);
 
-    /* Layout */
+    --btn-solid-bg: rgba(255, 255, 255, 0.1);
+    --btn-solid-border: rgba(255, 255, 255, 0.12);
+    --btn-solid-bg-hover: rgba(255, 255, 255, 0.06);
+    --btn-solid-border-hover: rgba(255, 255, 255, 0.12);
+    --link-accent-hover-bg: rgba(56, 139, 253, 0.12);
+    --link-accent-hover-border: rgba(88, 166, 255, 0.28);
+    --btn-gradient: linear-gradient(135deg, rgba(31, 111, 235, 0.9), rgba(56, 139, 253, 0.75));
+    --btn-gradient-border: rgba(88, 166, 255, 0.2);
+
+    --surface-card: linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(13, 17, 23, 0.98));
+    --surface-card-alt: linear-gradient(180deg, rgba(24, 29, 37, 0.96), rgba(14, 18, 24, 0.96));
+    --surface-card-repo: linear-gradient(180deg, rgba(22, 27, 34, 0.95), rgba(10, 14, 19, 0.98));
+    --surface-header: linear-gradient(180deg, rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.76));
+    --surface-footer: linear-gradient(180deg, rgba(13, 17, 23, 0.72), rgba(13, 17, 23, 0.94));
+    --surface-hero: radial-gradient(circle at top, rgba(88, 166, 255, 0.16), transparent 40%),
+        linear-gradient(180deg, rgba(18, 23, 30, 0.94), rgba(13, 17, 23, 0.98));
+    --surface-download-hero: radial-gradient(circle at top, rgba(88, 166, 255, 0.14), transparent 44%),
+        linear-gradient(180deg, rgba(18, 23, 30, 0.94), rgba(13, 17, 23, 0.98));
+    --surface-slide-1: linear-gradient(180deg, rgba(15, 20, 27, 0.98), rgba(13, 17, 23, 1));
+    --surface-slide-2: linear-gradient(180deg, rgba(16, 21, 28, 1), rgba(11, 15, 21, 1));
+    --surface-slide-3: linear-gradient(180deg, rgba(17, 21, 28, 1), rgba(12, 16, 22, 1));
+    --surface-slide-4: linear-gradient(180deg, rgba(14, 18, 24, 1), rgba(10, 14, 19, 1));
+    --surface-slide-5: linear-gradient(180deg, rgba(12, 16, 22, 1), rgba(13, 17, 23, 1));
+    --surface-contact-accent: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(22, 27, 34, 0.98), rgba(13, 17, 23, 0.98));
+    --surface-contact-panel: linear-gradient(180deg, rgba(20, 24, 31, 0.98), rgba(13, 17, 23, 1));
+    --surface-download-item: linear-gradient(180deg, rgba(26, 31, 39, 0.98), rgba(13, 17, 23, 0.98));
+    --surface-icon-tile: radial-gradient(circle at top left, rgba(88, 166, 255, 0.34), rgba(88, 166, 255, 0.1)),
+        rgba(255, 255, 255, 0.04);
+
+    --shadow-dropdown: 0 18px 36px rgba(1, 4, 9, 0.32);
+    --shadow-card: 0 18px 34px rgba(1, 4, 9, 0.18);
+    --shadow-card-hover: 0 22px 40px rgba(1, 4, 9, 0.26);
+
     --content-width: 896px;
     --header-height: 56px;
 
-    /* Typography */
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
 
-    /* Spacing */
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 16px;
@@ -39,9 +85,84 @@
     --space-5: 32px;
     --space-6: 48px;
 
-    /* Radius */
     --radius-sm: 6px;
     --radius-md: 8px;
+
+    --success-fg: #3fb950;
+    --danger-fg: #f85149;
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+
+    --bg-default: #ffffff;
+    --bg-muted: #f6f8fa;
+    --bg-subtle: #eef1f4;
+    --bg-inset: #ffffff;
+
+    --text-default: #24292f;
+    --text-muted: #57606a;
+    --text-faint: #8c959f;
+    --text-strong: #1f2328;
+
+    --accent-fg: #0969da;
+    --accent-emphasis: #0550ae;
+    --accent-soft-fg: #0550ae;
+    --accent-chip-bg: rgba(9, 105, 218, 0.08);
+    --accent-chip-border: rgba(9, 105, 218, 0.22);
+    --accent-btn-bg: rgba(9, 105, 218, 0.1);
+    --accent-btn-border: rgba(9, 105, 218, 0.28);
+    --accent-btn-bg-hover: rgba(9, 105, 218, 0.16);
+    --accent-btn-border-hover: rgba(9, 105, 218, 0.4);
+
+    --border-default: #d0d7de;
+    --border-muted: #eaeef2;
+    --border-header: rgba(31, 35, 40, 0.08);
+    --border-footer: rgba(9, 105, 218, 0.14);
+    --border-image: rgba(31, 35, 40, 0.08);
+
+    --surface-hover: rgba(31, 35, 40, 0.04);
+    --surface-hover-strong: rgba(31, 35, 40, 0.06);
+    --surface-active: rgba(31, 35, 40, 0.08);
+    --surface-active-strong: rgba(31, 35, 40, 0.1);
+    --surface-subtle: rgba(31, 35, 40, 0.03);
+    --surface-border: rgba(31, 35, 40, 0.12);
+    --surface-border-strong: rgba(31, 35, 40, 0.16);
+    --surface-raised: #ffffff;
+
+    --btn-solid-bg: #24292f;
+    --btn-solid-border: #24292f;
+    --btn-solid-bg-hover: #32383f;
+    --btn-solid-border-hover: #32383f;
+    --link-accent-hover-bg: rgba(9, 105, 218, 0.08);
+    --link-accent-hover-border: rgba(9, 105, 218, 0.24);
+    --btn-gradient: linear-gradient(135deg, #0969da, #218bff);
+    --btn-gradient-border: rgba(9, 105, 218, 0.24);
+
+    --surface-card: linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-card-alt: linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-card-repo: linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-header: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9));
+    --surface-footer: linear-gradient(180deg, rgba(246, 248, 250, 0.96), #f6f8fa);
+    --surface-hero: radial-gradient(circle at top, rgba(9, 105, 218, 0.1), transparent 42%),
+        linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-download-hero: radial-gradient(circle at top, rgba(9, 105, 218, 0.08), transparent 44%),
+        linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-slide-1: linear-gradient(180deg, #f6f8fa, #ffffff);
+    --surface-slide-2: linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-slide-3: linear-gradient(180deg, #f6f8fa, #ffffff);
+    --surface-slide-4: linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-slide-5: linear-gradient(180deg, #f6f8fa, #ffffff);
+    --surface-contact-accent: radial-gradient(circle at top left, rgba(9, 105, 218, 0.08), transparent 34%),
+        linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-contact-panel: linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-download-item: linear-gradient(180deg, #ffffff, #f6f8fa);
+    --surface-icon-tile: radial-gradient(circle at top left, rgba(9, 105, 218, 0.14), rgba(9, 105, 218, 0.04)),
+        rgba(9, 105, 218, 0.04);
+
+    --shadow-dropdown: 0 18px 36px rgba(31, 35, 40, 0.12);
+    --shadow-card: 0 12px 28px rgba(31, 35, 40, 0.08);
+    --shadow-card-hover: 0 16px 32px rgba(31, 35, 40, 0.12);
 }
 
 *,
@@ -67,17 +188,18 @@ body {
     background: var(--bg-default);
     color: var(--text-default);
     line-height: 1.5;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 #root {
     min-height: 100%;
 }
 
-/* Base typography */
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 var(--space-3) 0;
     font-weight: 600;
     line-height: 1.25;
+    color: var(--text-strong);
 }
 
 h1 { font-size: 2rem; }
@@ -99,7 +221,6 @@ li {
     margin-bottom: var(--space-1);
 }
 
-/* Links – GitHub style */
 a {
     color: var(--accent-fg);
     text-decoration: none;
@@ -114,7 +235,6 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
-/* Utility: content block for prose (policy pages) */
 .prose {
     max-width: 100%;
 }
@@ -138,7 +258,6 @@ a:focus-visible {
     font-size: 0.875rem;
 }
 
-/* Card / box – GitHub panel style */
 .panel {
     background: var(--bg-muted);
     border: 1px solid var(--border-default);

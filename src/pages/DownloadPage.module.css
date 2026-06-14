@@ -6,9 +6,7 @@
     margin-bottom: var(--space-6);
     padding: clamp(28px, 6vw, 56px);
     text-align: center;
-    background:
-        radial-gradient(circle at top, rgba(88, 166, 255, 0.14), transparent 44%),
-        linear-gradient(180deg, rgba(18, 23, 30, 0.94), rgba(13, 17, 23, 0.98));
+    background: var(--surface-download-hero);
 }
 
 .eyebrow {
@@ -20,9 +18,9 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #9ecbff;
-    background: rgba(56, 139, 253, 0.14);
-    border: 1px solid rgba(88, 166, 255, 0.24);
+    color: var(--accent-soft-fg);
+    background: var(--accent-chip-bg);
+    border: 1px solid var(--accent-chip-border);
     border-radius: 999px;
 }
 
@@ -80,16 +78,16 @@
     gap: 18px;
     min-height: 280px;
     padding: 22px;
-    background:
-        linear-gradient(180deg, rgba(26, 31, 39, 0.98), rgba(13, 17, 23, 0.98));
+    background: var(--surface-download-item);
+    border: 1px solid var(--border-muted);
     border-radius: 22px;
-    box-shadow: 0 18px 34px rgba(1, 4, 9, 0.18);
+    box-shadow: var(--shadow-card);
     transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 22px 40px rgba(1, 4, 9, 0.26);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .iconWrap {
@@ -99,10 +97,8 @@
     width: 62px;
     height: 62px;
     border-radius: 18px;
-    color: #ffffff;
-    background:
-        radial-gradient(circle at top left, rgba(88, 166, 255, 0.34), rgba(88, 166, 255, 0.1)),
-        rgba(255, 255, 255, 0.04);
+    color: var(--text-strong);
+    background: var(--surface-icon-tile);
 }
 
 .iconSvg {
@@ -149,7 +145,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #9ecbff;
+    color: var(--accent-soft-fg);
 }
 
 .link {
@@ -160,17 +156,17 @@
     padding: 0 16px;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-strong);
+    background: var(--surface-subtle);
+    border: 1px solid var(--surface-border);
     border-radius: 10px;
     text-decoration: none;
     transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .link:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.16);
+    background: var(--surface-active);
+    border-color: var(--surface-border-strong);
     text-decoration: none;
 }
 
@@ -183,8 +179,8 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface-subtle);
+    border: 1px solid var(--surface-border);
     border-radius: 10px;
     cursor: default;
 }

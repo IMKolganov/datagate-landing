@@ -10,6 +10,23 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png" />
+  <script>
+    (function () {
+      var key = "datagate-theme";
+      var saved = localStorage.getItem(key);
+      var theme =
+        saved === "light" || saved === "dark"
+          ? saved
+          : window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+      document.documentElement.setAttribute("data-theme", theme);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        meta.setAttribute("content", theme === "light" ? "#ffffff" : "#0d1117");
+      }
+    })();
+  </script>
 </head>
 <body>
 <div id="root"></div>
