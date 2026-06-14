@@ -58,12 +58,12 @@
 }
 
 .title {
-    max-width: 13ch;
+    max-width: min(820px, 100%);
     margin: 0 auto var(--space-3);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(1.875rem, 3.5vw, 3rem);
     font-weight: 600;
     letter-spacing: -0.025em;
-    line-height: 1.05;
+    line-height: 1.15;
 }
 
 .subtitle {
