@@ -12,10 +12,36 @@
 }
 
 .subtitle {
-    margin: 0 0 var(--space-6) 0;
+    margin: 0 0 var(--space-4) 0;
     font-size: 1.125rem;
     color: var(--text-muted);
     text-align: center;
+}
+
+.demoLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 44px;
+    margin: 0 auto var(--space-5);
+    padding: 0 20px;
+    color: #ffffff;
+    background: rgba(56, 139, 253, 0.18);
+    border: 1px solid rgba(88, 166, 255, 0.35);
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.demoLink:hover {
+    background: rgba(56, 139, 253, 0.28);
+    border-color: rgba(88, 166, 255, 0.5);
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .content {
@@ -27,4 +53,74 @@
 
 .content p:last-child {
     margin-bottom: 0;
+}
+
+.featureList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin: 0 0 var(--space-4);
+    padding: 0;
+    list-style: none;
+}
+
+.featureItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: var(--space-3);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+}
+
+.featureItem strong {
+    font-size: 0.9375rem;
+}
+
+.featureItem span {
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.repoList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.repoCard {
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+}
+
+.repoName {
+    margin: 0 0 var(--space-2);
+    font-size: 1.0625rem;
+}
+
+.repoDescription {
+    margin: 0 0 var(--space-3);
+    color: var(--text-muted);
+}
+
+.repoLink {
+    display: inline-flex;
+    color: #9ecbff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.repoLink:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .featureList,
+    .repoList {
+        grid-template-columns: 1fr;
+    }
 }

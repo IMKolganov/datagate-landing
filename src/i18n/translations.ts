@@ -63,6 +63,13 @@ export type Translation = {
         openRepository: string;
         clientRepos: Repo[];
         serverRepos: Repo[];
+        dashboard: {
+            label: string;
+            title: string;
+            subtitle: string;
+            tryDemo: string;
+            screenshots: Array<{ alt: string; caption: string }>;
+        };
     };
     download: {
         eyebrow: string;
@@ -76,10 +83,14 @@ export type Translation = {
     server: {
         title: string;
         subtitle: string;
+        tryDashboard: string;
         webDashboard: string;
         webDashboardParagraph: string;
+        featuresTitle: string;
+        features: Array<{ title: string; description: string }>;
         sourceCode: string;
-        serverSolution: string;
+        repos: Repo[];
+        infrastructureTitle: string;
         paragraphs: string[];
     };
     contacts: {
@@ -149,6 +160,8 @@ const commonRepos = {
     linux: "https://github.com/IMKolganov/DataGateLinux",
     linuxReleases: "https://github.com/IMKolganov/DataGateLinux/releases",
     server: "https://github.com/IMKolganov/OpenVpnGateMonitor",
+    openVpnManager: "https://github.com/IMKolganov/DataGateOpenVpnManager",
+    dashboardLive: "https://dash.datagateapp.com/",
 };
 
 export const translations: Record<Language, Translation> = {
@@ -232,11 +245,36 @@ export const translations: Record<Language, Translation> = {
             ],
             serverRepos: [
                 {
-                    name: "Server management dashboard",
-                    description: "Web-панель и API-слой для управления VPN-инфраструктурой в реальном времени.",
+                    name: "DataGate Monitor",
+                    description: "Backend, REST API и web-dashboard: OpenVPN, Xray, пользователи, квоты, карты трафика и Telegram-бот.",
                     href: commonRepos.server,
                 },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "Docker-образ OpenVPN sidecar с .NET management API, Easy-RSA и интеграцией с DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
             ],
+            dashboard: {
+                label: "DataGate Monitor",
+                title: "Панель управления VPN-инфраструктурой",
+                subtitle: "OpenVPN и Xray в одном dashboard: подключённые пользователи, трафик, API, Telegram-бот, GeoLite, 2FA для админов, квоты, уведомления и email-рассылка.",
+                tryDemo: "Открыть демо dashboard",
+                screenshots: [
+                    {
+                        alt: "DataGate Monitor — обзор серверов, сессий и трафика",
+                        caption: "Обзор всех серверов: сессии, трафик и пользователи за выбранный период",
+                    },
+                    {
+                        alt: "DataGate Monitor — настройки системы",
+                        caption: "Настройки: квоты, GeoLite DB, Telegram-бот, 2FA и email-рассылка",
+                    },
+                    {
+                        alt: "DataGate Monitor — 3D-карта трафика в реальном времени",
+                        caption: "Интерактивные карты с анимацией потоков трафика между клиентами и серверами",
+                    },
+                ],
+            },
         },
         download: {
             eyebrow: "Загрузки",
@@ -262,15 +300,67 @@ export const translations: Record<Language, Translation> = {
         },
         server: {
             title: "Серверные решения",
-            subtitle: "OpenVPN server stack с management API и web dashboard",
-            webDashboard: "Web dashboard",
-            webDashboardParagraph: "DataGate включает web-панель для управления VPN-инфраструктурой. Можно управлять серверами, пользователями, сертификатами и отслеживать соединения в реальном времени. Панель взаимодействует с сервером через REST API.",
+            subtitle: "OpenVPN, Xray, REST API и web-dashboard для полного контроля над VPN-инфраструктурой",
+            tryDashboard: "Попробовать dashboard",
+            webDashboard: "DataGate Monitor",
+            webDashboardParagraph: "DataGate Monitor — web-панель и backend для управления VPN-инфраструктурой. Поддерживаются OpenVPN и Xray: можно видеть подключённых пользователей, сессии и трафик, управлять серверами и сертификатами. Панель работает через REST API и интегрируется с Telegram-ботом. Познакомиться и протестировать можно на живом demo.",
+            featuresTitle: "Возможности серверной части",
+            features: [
+                {
+                    title: "OpenVPN и Xray",
+                    description: "Единая панель для двух VPN-стеков: управление серверами, пользователями и конфигурацией.",
+                },
+                {
+                    title: "Подключённые пользователи",
+                    description: "Мониторинг активных сессий, трафика IN/OUT и статуса серверов в реальном времени.",
+                },
+                {
+                    title: "REST API",
+                    description: "Программное управление серверами, пользователями, квотами и конфигурацией.",
+                },
+                {
+                    title: "Telegram-бот",
+                    description: "Уведомления и взаимодействие с инфраструктурой через Telegram.",
+                },
+                {
+                    title: "GeoLite DB",
+                    description: "Геолокация подключений и аналитика по регионам на базе GeoLite.",
+                },
+                {
+                    title: "2FA для админов",
+                    description: "Двухфакторная аутентификация для администраторов панели.",
+                },
+                {
+                    title: "Уведомления и email",
+                    description: "Настройка VPN-уведомлений и массовых email-рассылок пользователям.",
+                },
+                {
+                    title: "Квоты пользователей",
+                    description: "Тарифные планы и лимиты трафика для отдельных пользователей.",
+                },
+                {
+                    title: "Карты трафика",
+                    description: "Несколько интерактивных карт с анимацией потоков трафика в реальном времени.",
+                },
+            ],
             sourceCode: "Исходный код",
-            serverSolution: "Серверное решение",
+            repos: [
+                {
+                    name: "DataGate Monitor (OpenVpnGateMonitor)",
+                    description: "Backend, REST API и web-dashboard — ядро серверной экосистемы DataGate.",
+                    href: commonRepos.server,
+                },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "Docker-образ с OpenVPN, Easy-RSA и .NET management API. Sidecar для DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
+            ],
+            infrastructureTitle: "Инфраструктура",
             paragraphs: [
-                "Серверная часть объединяет OpenVPN и Web API для конфигурации и управления пользователями. Это единый стек для VPN-туннелей, жизненного цикла сертификатов и контроля доступа.",
-                "При необходимости сервер можно разместить за proxy, например WSS (WebSocket Secure). Это помогает работать в ограниченных сетях и добавляет дополнительный транспортный уровень.",
-                "Вместе панель управления и серверная часть дают полный контроль над VPN-инфраструктурой в современном API-driven формате.",
+                "DataGateOpenVpnManager — готовый Docker-контейнер с OpenVPN-сервером, Easy-RSA и management API. Контейнер инициализирует PKI, генерирует конфигурацию и работает вместе с backend DataGate Monitor.",
+                "Сервер можно разместить за proxy, например WSS (WebSocket Secure), чтобы обходить ограничения сети и добавить транспортный уровень защиты.",
+                "Вместе dashboard, API и OpenVPN sidecar дают полный контроль над VPN-инфраструктурой в современном API-driven формате.",
             ],
         },
         contacts: {
@@ -441,11 +531,36 @@ export const translations: Record<Language, Translation> = {
             ],
             serverRepos: [
                 {
-                    name: "Server management dashboard",
-                    description: "Web dashboard and API layer for managing VPN infrastructure in real time.",
+                    name: "DataGate Monitor",
+                    description: "Backend, REST API, and web dashboard: OpenVPN, Xray, users, quotas, traffic maps, and Telegram bot.",
                     href: commonRepos.server,
                 },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "OpenVPN Docker sidecar with .NET management API, Easy-RSA, and DataGate Monitor integration.",
+                    href: commonRepos.openVpnManager,
+                },
             ],
+            dashboard: {
+                label: "DataGate Monitor",
+                title: "VPN infrastructure management dashboard",
+                subtitle: "OpenVPN and Xray in one dashboard: connected users, traffic, API, Telegram bot, GeoLite, admin 2FA, quotas, notifications, and email broadcast.",
+                tryDemo: "Open live dashboard demo",
+                screenshots: [
+                    {
+                        alt: "DataGate Monitor — server overview, sessions, and traffic",
+                        caption: "All-servers overview: sessions, traffic, and users for the selected period",
+                    },
+                    {
+                        alt: "DataGate Monitor — system settings",
+                        caption: "Settings: quotas, GeoLite DB, Telegram bot, 2FA, and email broadcast",
+                    },
+                    {
+                        alt: "DataGate Monitor — real-time 3D traffic globe",
+                        caption: "Interactive maps with animated traffic flows between clients and servers",
+                    },
+                ],
+            },
         },
         download: {
             eyebrow: "Downloads",
@@ -471,15 +586,67 @@ export const translations: Record<Language, Translation> = {
         },
         server: {
             title: "Server solutions",
-            subtitle: "OpenVPN server stack with management API and web dashboard",
-            webDashboard: "Web dashboard",
-            webDashboardParagraph: "DataGate includes a web-based dashboard for managing VPN infrastructure. You can manage servers, users, certificates, and monitor connections in real time. The dashboard talks to your server via a REST API.",
+            subtitle: "OpenVPN, Xray, REST API, and a web dashboard for full VPN infrastructure control",
+            tryDashboard: "Try the dashboard",
+            webDashboard: "DataGate Monitor",
+            webDashboardParagraph: "DataGate Monitor is the web dashboard and backend for managing VPN infrastructure. It supports OpenVPN and Xray: view connected users, sessions, and traffic, manage servers and certificates. The panel works via REST API and integrates with a Telegram bot. You can explore and test it on the live demo.",
+            featuresTitle: "Server-side capabilities",
+            features: [
+                {
+                    title: "OpenVPN and Xray",
+                    description: "One dashboard for both VPN stacks: manage servers, users, and configuration.",
+                },
+                {
+                    title: "Connected users",
+                    description: "Monitor active sessions, IN/OUT traffic, and server status in real time.",
+                },
+                {
+                    title: "REST API",
+                    description: "Programmatic control of servers, users, quotas, and configuration.",
+                },
+                {
+                    title: "Telegram bot",
+                    description: "Notifications and infrastructure interaction via Telegram.",
+                },
+                {
+                    title: "GeoLite DB",
+                    description: "Connection geolocation and regional analytics powered by GeoLite.",
+                },
+                {
+                    title: "Admin 2FA",
+                    description: "Two-factor authentication for dashboard administrators.",
+                },
+                {
+                    title: "Notifications and email",
+                    description: "Configure VPN notifications and bulk email broadcasts to users.",
+                },
+                {
+                    title: "User quotas",
+                    description: "Traffic plans and limits for individual users.",
+                },
+                {
+                    title: "Traffic maps",
+                    description: "Multiple interactive maps with real-time animated traffic flows.",
+                },
+            ],
             sourceCode: "Source code",
-            serverSolution: "Server solution",
+            repos: [
+                {
+                    name: "DataGate Monitor (OpenVpnGateMonitor)",
+                    description: "Backend, REST API, and web dashboard — the core of the DataGate server ecosystem.",
+                    href: commonRepos.server,
+                },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "Docker image with OpenVPN, Easy-RSA, and .NET management API. Sidecar for DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
+            ],
+            infrastructureTitle: "Infrastructure",
             paragraphs: [
-                "The server side combines OpenVPN with a Web API for configuration and user management. You get a single stack that handles VPN tunnels, certificate lifecycle, and access control from one place.",
-                "Optionally, the server can run behind a proxy, such as WSS (WebSocket Secure). The proxy helps in restricted networks and adds an extra transport layer.",
-                "Together, the dashboard and server solution give you full control over your VPN infrastructure with a modern, API-driven setup.",
+                "DataGateOpenVpnManager is a ready-to-run Docker container with an OpenVPN server, Easy-RSA, and management API. The container initializes PKI, generates configuration, and works alongside the DataGate Monitor backend.",
+                "The server can run behind a proxy such as WSS (WebSocket Secure) to bypass network restrictions and add a transport security layer.",
+                "Together, the dashboard, API, and OpenVPN sidecar give you full control over VPN infrastructure in a modern, API-driven setup.",
             ],
         },
         contacts: {
@@ -650,11 +817,36 @@ export const translations: Record<Language, Translation> = {
             ],
             serverRepos: [
                 {
-                    name: "Tableau de bord serveur",
-                    description: "Tableau de bord web et couche API pour gérer l'infrastructure VPN en temps réel.",
+                    name: "DataGate Monitor",
+                    description: "Backend, API REST et tableau de bord web : OpenVPN, Xray, utilisateurs, quotas, cartes de trafic et bot Telegram.",
                     href: commonRepos.server,
                 },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "Sidecar Docker OpenVPN avec API .NET, Easy-RSA et intégration DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
             ],
+            dashboard: {
+                label: "DataGate Monitor",
+                title: "Tableau de bord de gestion VPN",
+                subtitle: "OpenVPN et Xray dans un seul dashboard : utilisateurs connectés, trafic, API, bot Telegram, GeoLite, 2FA admin, quotas, notifications et email.",
+                tryDemo: "Ouvrir la démo du dashboard",
+                screenshots: [
+                    {
+                        alt: "DataGate Monitor — vue d'ensemble des serveurs et du trafic",
+                        caption: "Vue d'ensemble : sessions, trafic et utilisateurs pour la période sélectionnée",
+                    },
+                    {
+                        alt: "DataGate Monitor — paramètres système",
+                        caption: "Paramètres : quotas, GeoLite DB, bot Telegram, 2FA et email",
+                    },
+                    {
+                        alt: "DataGate Monitor — globe 3D du trafic en temps réel",
+                        caption: "Cartes interactives avec animation des flux de trafic en temps réel",
+                    },
+                ],
+            },
         },
         download: {
             eyebrow: "Téléchargements",
@@ -680,15 +872,40 @@ export const translations: Record<Language, Translation> = {
         },
         server: {
             title: "Solutions serveur",
-            subtitle: "Pile serveur OpenVPN avec API de gestion et tableau de bord web",
-            webDashboard: "Tableau de bord web",
-            webDashboardParagraph: "DataGate inclut un tableau de bord web pour gérer l'infrastructure VPN. Vous pouvez gérer les serveurs, les utilisateurs, les certificats et surveiller les connexions en temps réel. Le tableau de bord communique avec votre serveur via une API REST.",
+            subtitle: "OpenVPN, Xray, API REST et tableau de bord web pour un contrôle complet de l'infrastructure VPN",
+            tryDashboard: "Essayer le dashboard",
+            webDashboard: "DataGate Monitor",
+            webDashboardParagraph: "DataGate Monitor est le tableau de bord web et le backend pour gérer l'infrastructure VPN. Il prend en charge OpenVPN et Xray : utilisateurs connectés, sessions, trafic, serveurs et certificats. Le panneau fonctionne via API REST et s'intègre avec un bot Telegram. Explorez et testez-le sur la démo en ligne.",
+            featuresTitle: "Fonctionnalités côté serveur",
+            features: [
+                { title: "OpenVPN et Xray", description: "Un seul dashboard pour les deux piles VPN." },
+                { title: "Utilisateurs connectés", description: "Surveillance des sessions actives et du trafic en temps réel." },
+                { title: "API REST", description: "Contrôle programmatique des serveurs, utilisateurs et quotas." },
+                { title: "Bot Telegram", description: "Notifications et interaction via Telegram." },
+                { title: "GeoLite DB", description: "Géolocalisation des connexions et analyses régionales." },
+                { title: "2FA admin", description: "Authentification à deux facteurs pour les administrateurs." },
+                { title: "Notifications et email", description: "Configuration des alertes VPN et envois email en masse." },
+                { title: "Quotas utilisateurs", description: "Plans de trafic et limites par utilisateur." },
+                { title: "Cartes de trafic", description: "Cartes interactives avec flux de trafic animés en temps réel." },
+            ],
             sourceCode: "Code source",
-            serverSolution: "Solution serveur",
+            repos: [
+                {
+                    name: "DataGate Monitor (OpenVpnGateMonitor)",
+                    description: "Backend, API REST et tableau de bord web — cœur de l'écosystème serveur DataGate.",
+                    href: commonRepos.server,
+                },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "Image Docker avec OpenVPN, Easy-RSA et API .NET. Sidecar pour DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
+            ],
+            infrastructureTitle: "Infrastructure",
             paragraphs: [
-                "La partie serveur combine OpenVPN et une API web pour la configuration et la gestion des utilisateurs. Vous obtenez une pile unique pour les tunnels VPN, le cycle de vie des certificats et le contrôle d'accès.",
-                "Le serveur peut également fonctionner derrière un proxy, par exemple WSS (WebSocket Secure). Cela aide dans les réseaux restreints et ajoute une couche de transport supplémentaire.",
-                "Ensemble, le tableau de bord et la solution serveur donnent un contrôle complet de l'infrastructure VPN avec une approche moderne pilotée par API.",
+                "DataGateOpenVpnManager est un conteneur Docker prêt à l'emploi avec serveur OpenVPN, Easy-RSA et API de gestion. Il initialise la PKI, génère la configuration et fonctionne avec le backend DataGate Monitor.",
+                "Le serveur peut fonctionner derrière un proxy WSS (WebSocket Secure) pour contourner les restrictions réseau.",
+                "Ensemble, dashboard, API et sidecar OpenVPN offrent un contrôle complet de l'infrastructure VPN.",
             ],
         },
         contacts: {
@@ -859,11 +1076,36 @@ export const translations: Record<Language, Translation> = {
             ],
             serverRepos: [
                 {
-                    name: "Server-Management-Dashboard",
-                    description: "Web-Dashboard und API-Schicht zur Verwaltung der VPN-Infrastruktur in Echtzeit.",
+                    name: "DataGate Monitor",
+                    description: "Backend, REST-API und Web-Dashboard: OpenVPN, Xray, Benutzer, Quotas, Traffic-Karten und Telegram-Bot.",
                     href: commonRepos.server,
                 },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "OpenVPN-Docker-Sidecar mit .NET-API, Easy-RSA und DataGate-Monitor-Integration.",
+                    href: commonRepos.openVpnManager,
+                },
             ],
+            dashboard: {
+                label: "DataGate Monitor",
+                title: "VPN-Infrastruktur-Dashboard",
+                subtitle: "OpenVPN und Xray in einem Dashboard: verbundene Benutzer, Traffic, API, Telegram-Bot, GeoLite, Admin-2FA, Quotas, Benachrichtigungen und E-Mail.",
+                tryDemo: "Live-Dashboard öffnen",
+                screenshots: [
+                    {
+                        alt: "DataGate Monitor — Server-Übersicht und Traffic",
+                        caption: "Gesamtübersicht: Sitzungen, Traffic und Benutzer für den gewählten Zeitraum",
+                    },
+                    {
+                        alt: "DataGate Monitor — Systemeinstellungen",
+                        caption: "Einstellungen: Quotas, GeoLite DB, Telegram-Bot, 2FA und E-Mail-Versand",
+                    },
+                    {
+                        alt: "DataGate Monitor — 3D-Traffic-Globus in Echtzeit",
+                        caption: "Interaktive Karten mit animierten Traffic-Flüssen in Echtzeit",
+                    },
+                ],
+            },
         },
         download: {
             eyebrow: "Downloads",
@@ -889,15 +1131,40 @@ export const translations: Record<Language, Translation> = {
         },
         server: {
             title: "Serverlösungen",
-            subtitle: "OpenVPN-Server-Stack mit Management-API und Web-Dashboard",
-            webDashboard: "Web-Dashboard",
-            webDashboardParagraph: "DataGate enthält ein webbasiertes Dashboard zur Verwaltung der VPN-Infrastruktur. Sie können Server, Benutzer und Zertifikate verwalten und Verbindungen in Echtzeit überwachen. Das Dashboard kommuniziert per REST-API mit Ihrem Server.",
+            subtitle: "OpenVPN, Xray, REST-API und Web-Dashboard für volle Kontrolle über die VPN-Infrastruktur",
+            tryDashboard: "Dashboard testen",
+            webDashboard: "DataGate Monitor",
+            webDashboardParagraph: "DataGate Monitor ist das Web-Dashboard und Backend zur Verwaltung der VPN-Infrastruktur. OpenVPN und Xray werden unterstützt: verbundene Benutzer, Sitzungen, Traffic, Server und Zertifikate. Das Panel arbeitet über REST-API und integriert einen Telegram-Bot. Erkunden und testen Sie es in der Live-Demo.",
+            featuresTitle: "Server-Funktionen",
+            features: [
+                { title: "OpenVPN und Xray", description: "Ein Dashboard für beide VPN-Stacks." },
+                { title: "Verbundene Benutzer", description: "Überwachung aktiver Sitzungen und Traffic in Echtzeit." },
+                { title: "REST-API", description: "Programmatische Steuerung von Servern, Benutzern und Quotas." },
+                { title: "Telegram-Bot", description: "Benachrichtigungen und Interaktion über Telegram." },
+                { title: "GeoLite DB", description: "Geolokalisierung und regionale Analysen." },
+                { title: "Admin-2FA", description: "Zwei-Faktor-Authentifizierung für Administratoren." },
+                { title: "Benachrichtigungen und E-Mail", description: "VPN-Alerts und Massen-E-Mail-Versand konfigurieren." },
+                { title: "Benutzer-Quotas", description: "Traffic-Pläne und Limits pro Benutzer." },
+                { title: "Traffic-Karten", description: "Interaktive Karten mit animierten Traffic-Flüssen in Echtzeit." },
+            ],
             sourceCode: "Quellcode",
-            serverSolution: "Serverlösung",
+            repos: [
+                {
+                    name: "DataGate Monitor (OpenVpnGateMonitor)",
+                    description: "Backend, REST-API und Web-Dashboard — Kern der DataGate-Server-Ökosystem.",
+                    href: commonRepos.server,
+                },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "Docker-Image mit OpenVPN, Easy-RSA und .NET-API. Sidecar für DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
+            ],
+            infrastructureTitle: "Infrastruktur",
             paragraphs: [
-                "Die Serverseite kombiniert OpenVPN mit einer Web-API für Konfiguration und Benutzerverwaltung. Damit erhalten Sie einen einzigen Stack für VPN-Tunnel, Zertifikatslebenszyklus und Zugriffskontrolle.",
-                "Optional kann der Server hinter einem Proxy wie WSS (WebSocket Secure) betrieben werden. Das hilft in eingeschränkten Netzwerken und ergänzt eine zusätzliche Transportebene.",
-                "Zusammen geben Dashboard und Serverlösung volle Kontrolle über Ihre VPN-Infrastruktur in einem modernen API-gesteuerten Setup.",
+                "DataGateOpenVpnManager ist ein einsatzbereiter Docker-Container mit OpenVPN-Server, Easy-RSA und Management-API. Er initialisiert PKI, erzeugt Konfiguration und arbeitet mit dem DataGate-Monitor-Backend zusammen.",
+                "Der Server kann hinter einem WSS-Proxy (WebSocket Secure) betrieben werden, um Netzwerkbeschränkungen zu umgehen.",
+                "Zusammen geben Dashboard, API und OpenVPN-Sidecar volle Kontrolle über die VPN-Infrastruktur.",
             ],
         },
         contacts: {
@@ -1068,11 +1335,36 @@ export const translations: Record<Language, Translation> = {
             ],
             serverRepos: [
                 {
-                    name: "Server management dashboard",
-                    description: "Web dashboard και API layer για διαχείριση VPN υποδομής σε πραγματικό χρόνο.",
+                    name: "DataGate Monitor",
+                    description: "Backend, REST API και web dashboard: OpenVPN, Xray, χρήστες, quotas, χάρτες traffic και Telegram bot.",
                     href: commonRepos.server,
                 },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "OpenVPN Docker sidecar με .NET API, Easy-RSA και ενσωμάτωση DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
             ],
+            dashboard: {
+                label: "DataGate Monitor",
+                title: "Dashboard διαχείρισης VPN υποδομής",
+                subtitle: "OpenVPN και Xray σε ένα dashboard: συνδεδεμένοι χρήστες, traffic, API, Telegram bot, GeoLite, admin 2FA, quotas, ειδοποιήσεις και email.",
+                tryDemo: "Άνοιγμα live demo dashboard",
+                screenshots: [
+                    {
+                        alt: "DataGate Monitor — επισκόπηση servers και traffic",
+                        caption: "Επισκόπηση: sessions, traffic και χρήστες για την επιλεγμένη περίοδο",
+                    },
+                    {
+                        alt: "DataGate Monitor — ρυθμίσεις συστήματος",
+                        caption: "Ρυθμίσεις: quotas, GeoLite DB, Telegram bot, 2FA και email",
+                    },
+                    {
+                        alt: "DataGate Monitor — 3D χάρτης traffic σε πραγματικό χρόνο",
+                        caption: "Διαδραστικοί χάρτες με animation ροών traffic σε πραγματικό χρόνο",
+                    },
+                ],
+            },
         },
         download: {
             eyebrow: "Λήψεις",
@@ -1098,15 +1390,40 @@ export const translations: Record<Language, Translation> = {
         },
         server: {
             title: "Server λύσεις",
-            subtitle: "OpenVPN server stack με management API και web dashboard",
-            webDashboard: "Web dashboard",
-            webDashboardParagraph: "Το DataGate περιλαμβάνει web dashboard για διαχείριση VPN υποδομής. Μπορείτε να διαχειρίζεστε servers, χρήστες, πιστοποιητικά και να παρακολουθείτε συνδέσεις σε πραγματικό χρόνο. Το dashboard επικοινωνεί με τον server μέσω REST API.",
+            subtitle: "OpenVPN, Xray, REST API και web dashboard για πλήρη έλεγχο VPN υποδομής",
+            tryDashboard: "Δοκιμή dashboard",
+            webDashboard: "DataGate Monitor",
+            webDashboardParagraph: "Το DataGate Monitor είναι το web dashboard και backend για διαχείριση VPN υποδομής. Υποστηρίζει OpenVPN και Xray: συνδεδεμένοι χρήστες, sessions, traffic, servers και πιστοποιητικά. Το panel λειτουργεί μέσω REST API και ενσωματώνει Telegram bot. Μπορείτε να το δοκιμάσετε στο live demo.",
+            featuresTitle: "Δυνατότητες server",
+            features: [
+                { title: "OpenVPN και Xray", description: "Ένα dashboard για και τα δύο VPN stacks." },
+                { title: "Συνδεδεμένοι χρήστες", description: "Παρακολούθηση ενεργών sessions και traffic σε πραγματικό χρόνο." },
+                { title: "REST API", description: "Προγραμματιστικός έλεγχος servers, χρηστών και quotas." },
+                { title: "Telegram bot", description: "Ειδοποιήσεις και αλληλεπίδραση μέσω Telegram." },
+                { title: "GeoLite DB", description: "Γεωεντοπισμός συνδέσεων και περιφερειακή ανάλυση." },
+                { title: "Admin 2FA", description: "Two-factor authentication για διαχειριστές." },
+                { title: "Ειδοποιήσεις και email", description: "Ρύθμιση VPN alerts και μαζικών email." },
+                { title: "Quotas χρηστών", description: "Πλάνα traffic και όρια ανά χρήστη." },
+                { title: "Χάρτες traffic", description: "Διαδραστικοί χάρτες με animation ροών σε πραγματικό χρόνο." },
+            ],
             sourceCode: "Πηγαίος κώδικας",
-            serverSolution: "Server λύση",
+            repos: [
+                {
+                    name: "DataGate Monitor (OpenVpnGateMonitor)",
+                    description: "Backend, REST API και web dashboard — πυρήνας του server οικοσυστήματος DataGate.",
+                    href: commonRepos.server,
+                },
+                {
+                    name: "DataGateOpenVpnManager",
+                    description: "Docker image με OpenVPN, Easy-RSA και .NET API. Sidecar για DataGate Monitor.",
+                    href: commonRepos.openVpnManager,
+                },
+            ],
+            infrastructureTitle: "Υποδομή",
             paragraphs: [
-                "Η server πλευρά συνδυάζει OpenVPN με Web API για παραμετροποίηση και διαχείριση χρηστών. Έτσι έχετε ένα ενιαίο stack για VPN tunnels, κύκλο ζωής πιστοποιητικών και έλεγχο πρόσβασης.",
-                "Προαιρετικά ο server μπορεί να τρέχει πίσω από proxy, όπως WSS (WebSocket Secure). Αυτό βοηθά σε περιοριστικά δίκτυα και προσθέτει ένα επιπλέον transport layer.",
-                "Μαζί, το dashboard και η server λύση δίνουν πλήρη έλεγχο της VPN υποδομής σας με σύγχρονο API-driven setup.",
+                "Το DataGateOpenVpnManager είναι έτοιμο Docker container με OpenVPN server, Easy-RSA και management API. Αρχικοποιεί PKI, δημιουργεί configuration και λειτουργεί με το backend του DataGate Monitor.",
+                "Ο server μπορεί να τρέχει πίσω από WSS proxy (WebSocket Secure) για παράκαμψη περιορισμών δικτύου.",
+                "Μαζί, dashboard, API και OpenVPN sidecar δίνουν πλήρη έλεγχο της VPN υποδομής.",
             ],
         },
         contacts: {

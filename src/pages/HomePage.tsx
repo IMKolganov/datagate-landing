@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
+import { DASHBOARD_LIVE_URL, DASHBOARD_SCREENSHOT_PATHS } from "../constants/dashboard";
 import { useLanguage } from "../i18n/LanguageProvider";
 import type { Translation } from "../i18n/translations";
 import styles from "./HomePage.module.css";
@@ -125,6 +126,39 @@ export function HomePage(): React.JSX.Element {
                 </div>
             </section>
 
+            <section className={`${styles.slide} ${styles.dashboardSlide}`} aria-labelledby="dashboard-title">
+                <div className={styles.slideInner}>
+                    <div className={styles.dashboardHeader}>
+                        <span className={styles.sectionLabel}>{t.home.dashboard.label}</span>
+                        <h2 id="dashboard-title" className={styles.sectionTitle}>{t.home.dashboard.title}</h2>
+                        <p className={styles.dashboardSubtitle}>{t.home.dashboard.subtitle}</p>
+                        <a
+                            href={DASHBOARD_LIVE_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.dashboardDemoLink}
+                        >
+                            {t.home.dashboard.tryDemo}
+                        </a>
+                    </div>
+
+                    <div className={styles.screenshotGrid}>
+                        {t.home.dashboard.screenshots.map((shot, index) => (
+                            <figure key={shot.caption} className={styles.screenshotCard}>
+                                <img
+                                    src={DASHBOARD_SCREENSHOT_PATHS[index]}
+                                    alt={shot.alt}
+                                    className={styles.screenshotImage}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <figcaption className={styles.screenshotCaption}>{shot.caption}</figcaption>
+                            </figure>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <section className={`${styles.slide} ${styles.overviewSlide}`}>
                 <div className={styles.slideInner}>
                     <div className={styles.overviewLead}>
@@ -175,22 +209,24 @@ export function HomePage(): React.JSX.Element {
                         <h2 id="server-title" className={styles.sectionTitle}>{t.home.serverTitle}</h2>
                     </div>
 
-                    {t.home.serverRepos.map((repo) => (
-                        <article key={repo.name} className={styles.serverFeature}>
-                            <div className={styles.serverFeatureContent}>
-                                <h3 className={styles.serverFeatureTitle}>{repo.name}</h3>
-                                <p className={styles.serverFeatureText}>{repo.description}</p>
-                            </div>
-                            <a
-                                href={repo.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.serverFeatureLink}
-                            >
-                                {t.home.openRepository}
-                            </a>
-                        </article>
-                    ))}
+                    <div className={styles.serverGrid}>
+                        {t.home.serverRepos.map((repo) => (
+                            <article key={repo.name} className={styles.serverFeature}>
+                                <div className={styles.serverFeatureContent}>
+                                    <h3 className={styles.serverFeatureTitle}>{repo.name}</h3>
+                                    <p className={styles.serverFeatureText}>{repo.description}</p>
+                                </div>
+                                <a
+                                    href={repo.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.serverFeatureLink}
+                                >
+                                    {t.home.openRepository}
+                                </a>
+                            </article>
+                        ))}
+                    </div>
                 </div>
             </section>
         </div>
