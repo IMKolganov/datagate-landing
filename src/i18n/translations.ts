@@ -68,6 +68,7 @@ export type Translation = {
             title: string;
             subtitle: string;
             tryDemo: string;
+            tryDemoNote: string;
             screenshots: Array<{ alt: string; caption: string }>;
         };
     };
@@ -84,6 +85,7 @@ export type Translation = {
         title: string;
         subtitle: string;
         tryDashboard: string;
+        tryDashboardNote: string;
         webDashboard: string;
         webDashboardParagraph: string;
         featuresTitle: string;
@@ -260,6 +262,7 @@ export const translations: Record<Language, Translation> = {
                 title: "Панель управления VPN-инфраструктурой",
                 subtitle: "OpenVPN и Xray в одном dashboard: подключённые пользователи, трафик, API, Telegram-бот, GeoLite, 2FA для админов, квоты, уведомления и email-рассылка.",
                 tryDemo: "Открыть демо dashboard",
+                tryDemoNote: "На публичном demo доступны не все функции: настройки и часть разделов открыты только администратору. Чтобы протестировать dashboard полностью, установите DataGate Monitor на свой сервер.",
                 screenshots: [
                     {
                         alt: "DataGate Monitor — обзор серверов, сессий и трафика",
@@ -302,6 +305,7 @@ export const translations: Record<Language, Translation> = {
             title: "Серверные решения",
             subtitle: "OpenVPN, Xray, REST API и web-dashboard для полного контроля над VPN-инфраструктурой",
             tryDashboard: "Попробовать dashboard",
+            tryDashboardNote: "На публичном demo доступны не все функции: настройки и часть разделов открыты только администратору. Чтобы протестировать dashboard полностью, установите DataGate Monitor на свой сервер.",
             webDashboard: "DataGate Monitor",
             webDashboardParagraph: "DataGate Monitor — web-панель и backend для управления VPN-инфраструктурой. Поддерживаются OpenVPN и Xray: можно видеть подключённых пользователей, сессии и трафик, управлять серверами и сертификатами. Панель работает через REST API и интегрируется с Telegram-ботом. Познакомиться и протестировать можно на живом demo.",
             featuresTitle: "Возможности серверной части",
@@ -546,6 +550,7 @@ export const translations: Record<Language, Translation> = {
                 title: "VPN infrastructure management dashboard",
                 subtitle: "OpenVPN and Xray in one dashboard: connected users, traffic, API, Telegram bot, GeoLite, admin 2FA, quotas, notifications, and email broadcast.",
                 tryDemo: "Open live dashboard demo",
+                tryDemoNote: "The public demo does not include every feature: settings and some sections are admin-only. Deploy DataGate Monitor on your own server to try the full dashboard.",
                 screenshots: [
                     {
                         alt: "DataGate Monitor — server overview, sessions, and traffic",
@@ -588,6 +593,7 @@ export const translations: Record<Language, Translation> = {
             title: "Server solutions",
             subtitle: "OpenVPN, Xray, REST API, and a web dashboard for full VPN infrastructure control",
             tryDashboard: "Try the dashboard",
+            tryDashboardNote: "The public demo does not include every feature: settings and some sections are admin-only. Deploy DataGate Monitor on your own server to try the full dashboard.",
             webDashboard: "DataGate Monitor",
             webDashboardParagraph: "DataGate Monitor is the web dashboard and backend for managing VPN infrastructure. It supports OpenVPN and Xray: view connected users, sessions, and traffic, manage servers and certificates. The panel works via REST API and integrates with a Telegram bot. You can explore and test it on the live demo.",
             featuresTitle: "Server-side capabilities",
@@ -832,6 +838,7 @@ export const translations: Record<Language, Translation> = {
                 title: "Tableau de bord de gestion VPN",
                 subtitle: "OpenVPN et Xray dans un seul dashboard : utilisateurs connectés, trafic, API, bot Telegram, GeoLite, 2FA admin, quotas, notifications et email.",
                 tryDemo: "Ouvrir la démo du dashboard",
+                tryDemoNote: "La démo publique n'inclut pas toutes les fonctionnalités : les paramètres et certaines sections sont réservés aux administrateurs. Déployez DataGate Monitor sur votre serveur pour tout tester.",
                 screenshots: [
                     {
                         alt: "DataGate Monitor — vue d'ensemble des serveurs et du trafic",
@@ -874,6 +881,7 @@ export const translations: Record<Language, Translation> = {
             title: "Solutions serveur",
             subtitle: "OpenVPN, Xray, API REST et tableau de bord web pour un contrôle complet de l'infrastructure VPN",
             tryDashboard: "Essayer le dashboard",
+            tryDashboardNote: "La démo publique n'inclut pas toutes les fonctionnalités : les paramètres et certaines sections sont réservés aux administrateurs. Déployez DataGate Monitor sur votre serveur pour tout tester.",
             webDashboard: "DataGate Monitor",
             webDashboardParagraph: "DataGate Monitor est le tableau de bord web et le backend pour gérer l'infrastructure VPN. Il prend en charge OpenVPN et Xray : utilisateurs connectés, sessions, trafic, serveurs et certificats. Le panneau fonctionne via API REST et s'intègre avec un bot Telegram. Explorez et testez-le sur la démo en ligne.",
             featuresTitle: "Fonctionnalités côté serveur",
@@ -1091,6 +1099,7 @@ export const translations: Record<Language, Translation> = {
                 title: "VPN-Infrastruktur-Dashboard",
                 subtitle: "OpenVPN und Xray in einem Dashboard: verbundene Benutzer, Traffic, API, Telegram-Bot, GeoLite, Admin-2FA, Quotas, Benachrichtigungen und E-Mail.",
                 tryDemo: "Live-Dashboard öffnen",
+                tryDemoNote: "In der öffentlichen Demo sind nicht alle Funktionen verfügbar: Einstellungen und einige Bereiche sind nur für Administratoren zugänglich. Installieren Sie DataGate Monitor auf Ihrem Server, um das volle Dashboard zu testen.",
                 screenshots: [
                     {
                         alt: "DataGate Monitor — Server-Übersicht und Traffic",
@@ -1133,6 +1142,7 @@ export const translations: Record<Language, Translation> = {
             title: "Serverlösungen",
             subtitle: "OpenVPN, Xray, REST-API und Web-Dashboard für volle Kontrolle über die VPN-Infrastruktur",
             tryDashboard: "Dashboard testen",
+            tryDashboardNote: "In der öffentlichen Demo sind nicht alle Funktionen verfügbar: Einstellungen und einige Bereiche sind nur für Administratoren zugänglich. Installieren Sie DataGate Monitor auf Ihrem Server, um das volle Dashboard zu testen.",
             webDashboard: "DataGate Monitor",
             webDashboardParagraph: "DataGate Monitor ist das Web-Dashboard und Backend zur Verwaltung der VPN-Infrastruktur. OpenVPN und Xray werden unterstützt: verbundene Benutzer, Sitzungen, Traffic, Server und Zertifikate. Das Panel arbeitet über REST-API und integriert einen Telegram-Bot. Erkunden und testen Sie es in der Live-Demo.",
             featuresTitle: "Server-Funktionen",
@@ -1350,6 +1360,7 @@ export const translations: Record<Language, Translation> = {
                 title: "Dashboard διαχείρισης VPN υποδομής",
                 subtitle: "OpenVPN και Xray σε ένα dashboard: συνδεδεμένοι χρήστες, traffic, API, Telegram bot, GeoLite, admin 2FA, quotas, ειδοποιήσεις και email.",
                 tryDemo: "Άνοιγμα live demo dashboard",
+                tryDemoNote: "Το public demo δεν περιλαμβάνει όλες τις λειτουργίες: ρυθμίσεις και ορισμένα τμήματα είναι διαθέσιμα μόνο σε admins. Εγκαταστήστε το DataGate Monitor στον δικό σας server για πλήρη δοκιμή.",
                 screenshots: [
                     {
                         alt: "DataGate Monitor — επισκόπηση servers και traffic",
@@ -1392,6 +1403,7 @@ export const translations: Record<Language, Translation> = {
             title: "Server λύσεις",
             subtitle: "OpenVPN, Xray, REST API και web dashboard για πλήρη έλεγχο VPN υποδομής",
             tryDashboard: "Δοκιμή dashboard",
+            tryDashboardNote: "Το public demo δεν περιλαμβάνει όλες τις λειτουργίες: ρυθμίσεις και ορισμένα τμήματα είναι διαθέσιμα μόνο σε admins. Εγκαταστήστε το DataGate Monitor στον δικό σας server για πλήρη δοκιμή.",
             webDashboard: "DataGate Monitor",
             webDashboardParagraph: "Το DataGate Monitor είναι το web dashboard και backend για διαχείριση VPN υποδομής. Υποστηρίζει OpenVPN και Xray: συνδεδεμένοι χρήστες, sessions, traffic, servers και πιστοποιητικά. Το panel λειτουργεί μέσω REST API και ενσωματώνει Telegram bot. Μπορείτε να το δοκιμάσετε στο live demo.",
             featuresTitle: "Δυνατότητες server",

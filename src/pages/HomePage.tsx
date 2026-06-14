@@ -140,6 +140,7 @@ export function HomePage(): React.JSX.Element {
                         >
                             {t.home.dashboard.tryDemo}
                         </a>
+                        <p className={styles.dashboardDemoNote}>{t.home.dashboard.tryDemoNote}</p>
                     </div>
 
                     <div className={styles.screenshotGrid}>

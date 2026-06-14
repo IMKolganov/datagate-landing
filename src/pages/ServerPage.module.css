@@ -18,13 +18,16 @@
     text-align: center;
 }
 
+.demoBlock {
+    margin: 0 auto var(--space-5);
+    text-align: center;
+}
+
 .demoLink {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: fit-content;
     min-height: 44px;
-    margin: 0 auto var(--space-5);
     padding: 0 20px;
     color: #ffffff;
     background: rgba(56, 139, 253, 0.18);
@@ -35,6 +38,14 @@
     transition:
         background 0.2s ease,
         border-color 0.2s ease;
+}
+
+.demoNote {
+    max-width: 640px;
+    margin: var(--space-3) auto 0;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--text-muted);
 }
 
 .demoLink:hover {

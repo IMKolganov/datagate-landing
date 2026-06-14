@@ -11,14 +11,17 @@ export function ServerPage(): React.JSX.Element {
             <h1 className={styles.title}>{t.server.title}</h1>
             <p className={styles.subtitle}>{t.server.subtitle}</p>
 
-            <a
-                href={DASHBOARD_LIVE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.demoLink}
-            >
-                {t.server.tryDashboard}
-            </a>
+            <div className={styles.demoBlock}>
+                <a
+                    href={DASHBOARD_LIVE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.demoLink}
+                >
+                    {t.server.tryDashboard}
+                </a>
+                <p className={styles.demoNote}>{t.server.tryDashboardNote}</p>
+            </div>
 
             <div className={`${styles.content} prose`}>
                 <h2>{t.server.webDashboard}</h2>
