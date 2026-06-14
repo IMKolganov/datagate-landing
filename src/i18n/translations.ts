@@ -193,9 +193,9 @@ export const translations: Record<Language, Translation> = {
             privacy: "Политика конфиденциальности",
         },
         home: {
-            eyebrow: "Экосистема OpenVPN",
-            title: "DataGate даёт открытый и управляемый VPN-стек без чёрного ящика.",
-            subtitle: "Клиенты, серверные инструменты и панель управления в одной экосистеме для приватных и контролируемых развёртываний.",
+            eyebrow: "Open-source VPN-платформа",
+            title: "DataGate — клиенты, сервер и панель управления в одной открытой экосистеме.",
+            subtitle: "OpenVPN и Xray, desktop- и mobile-приложения, REST API и web-dashboard для команд, которым нужен полный контроль над VPN.",
             downloadClients: "Скачать клиенты",
             downloadFor: "Скачать для",
             exploreServer: "Серверный стек",
@@ -214,7 +214,7 @@ export const translations: Record<Language, Translation> = {
                 },
             ],
             overviewLabel: "Почему DataGate",
-            overviewTitle: "Сделано для тех, кому нужен контроль, а не закрытая коробка.",
+            overviewTitle: "Для команд, которым важны прозрачность и контроль над VPN.",
             overviewParagraphs: [
                 "DataGate — это безопасное решение на базе OpenVPN с упором на приватность, прозрачность и современную инфраструктуру. Весь код проекта открыт, поэтому систему можно проверять, разворачивать и использовать независимо.",
                 "DataGate также включает web-панель для управления VPN-серверами, пользователями, сертификатами и соединениями в реальном времени.",
