@@ -97,7 +97,7 @@
 }
 
 .primaryAction {
-    color: var(--text-strong);
+    color: var(--btn-solid-fg);
     background: var(--btn-solid-bg);
     border: 1px solid var(--btn-solid-border);
 }
@@ -108,12 +108,18 @@
     border: 1px solid var(--border-default);
 }
 
-.primaryAction:hover,
+.primaryAction:hover {
+    text-decoration: none;
+    color: var(--btn-solid-fg);
+    background: var(--btn-solid-bg-hover);
+    border-color: var(--btn-solid-border-hover);
+}
+
 .secondaryAction:hover {
     text-decoration: none;
     color: var(--text-strong);
-    background: var(--btn-solid-bg-hover);
-    border-color: var(--btn-solid-border-hover);
+    background: var(--surface-active);
+    border-color: var(--surface-border-strong);
 }
 
 .highlights {

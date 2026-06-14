@@ -328,7 +328,7 @@
 }
 
 .primaryAction {
-    color: var(--text-strong);
+    color: var(--btn-solid-fg);
     background: var(--btn-solid-bg);
     border: 1px solid var(--btn-solid-border);
 }
@@ -339,11 +339,17 @@
     border: 1px solid var(--surface-border);
 }
 
-.primaryAction:hover,
-.secondaryAction:hover {
-    color: var(--text-strong);
+.primaryAction:hover {
+    color: var(--btn-solid-fg);
     background: var(--btn-solid-bg-hover);
     border-color: var(--btn-solid-border-hover);
+    text-decoration: none;
+}
+
+.secondaryAction:hover {
+    color: var(--text-strong);
+    background: var(--surface-hover-strong);
+    border-color: var(--surface-border-strong);
     text-decoration: none;
 }
 
