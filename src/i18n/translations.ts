@@ -46,6 +46,15 @@ export type Translation = {
         download: string;
         server: string;
         privacy: string;
+        deleteAccount: string;
+        cookieSettings: string;
+    };
+    cookieBanner: {
+        title: string;
+        description: string;
+        acceptAll: string;
+        rejectNonEssential: string;
+        privacyLink: string;
     };
     home: {
         eyebrow: string;
@@ -120,19 +129,34 @@ export type Translation = {
     privacy: {
         title: string;
         intro: string;
+        controllerTitle: string;
+        controllerText: string;
         collectTitle: string;
         collectLead: string;
         collectItems: string[];
+        websiteTitle: string;
+        websiteLead: string;
+        websiteItems: string[];
+        cookiesTitle: string;
+        cookiesLead: string;
+        cookiesItems: string[];
         notCollectLead: string;
         notCollectItems: string[];
         useTitle: string;
         useItems: string[];
+        legalBasisTitle: string;
+        legalBasisItems: string[];
         storageTitle: string;
         storageText: string;
+        rightsTitle: string;
+        rightsLead: string;
+        rightsItems: string[];
         thirdPartyTitle: string;
         thirdPartyText: string;
         childrenTitle: string;
         childrenText: string;
+        supervisorTitle: string;
+        supervisorText: string;
         contactTitle: string;
         contactText: string;
         deleteLead: string;
@@ -173,7 +197,7 @@ export const translations: Record<Language, Translation> = {
         meta: {
             language: "Язык",
             skipToMain: "Перейти к основному содержимому",
-            lastUpdated: "Последнее обновление: декабрь 2025",
+            lastUpdated: "Последнее обновление: июль 2026",
         },
         header: {
             logoTag: "Open-source VPN stack",
@@ -197,6 +221,16 @@ export const translations: Record<Language, Translation> = {
             download: "Скачать",
             server: "Сервер",
             privacy: "Политика конфиденциальности",
+            deleteAccount: "Удаление данных",
+            cookieSettings: "Настройки cookies",
+        },
+        cookieBanner: {
+            title: "Мы используем cookies и localStorage",
+            description:
+                "Этот сайт сохраняет ваш выбор темы и языка только после согласия. Аналитика и рекламные трекеры не используются. Подробнее — в",
+            acceptAll: "Принять",
+            rejectNonEssential: "Только необходимые",
+            privacyLink: "Политике конфиденциальности",
         },
         home: {
             eyebrow: "Open-source VPN-платформа",
@@ -396,15 +430,29 @@ export const translations: Record<Language, Translation> = {
         },
         privacy: {
             title: "Политика конфиденциальности",
-            intro: "DataGate (\"мы\", \"нас\", \"наш\") управляет мобильным приложением DataGate. Мы уважаем вашу конфиденциальность и стремимся защищать персональные данные.",
-            collectTitle: "1. Какие данные мы собираем",
-            collectLead: "Мы можем собирать и обрабатывать следующие данные:",
+            intro: "DataGate («мы», «нас», «наш») управляет мобильным приложением DataGate, клиентами, серверным ПО и сайтом datagateapp.com. Мы уважаем вашу конфиденциальность и обрабатываем персональные данные в соответствии с Общим регламентом по защите данных (GDPR) и применимым законодательством.",
+            controllerTitle: "1. Оператор данных",
+            controllerText: "Оператором персональных данных является владелец проекта DataGate. По вопросам обработки данных: imkolganov@gmail.com.",
+            collectTitle: "2. Данные в приложениях и сервисах",
+            collectLead: "В приложениях и связанных сервисах мы можем собирать и обрабатывать следующие данные:",
             collectItems: [
                 "Данные аутентификации (access tokens, refresh tokens)",
                 "Идентификаторы пользователя (installation ID, external user ID)",
                 "Метаданные VPN-подключения (состояние подключения, выбранный сервер)",
                 "Crash logs и диагностические данные об ошибках",
                 "Информацию об устройстве и операционной системе",
+            ],
+            websiteTitle: "3. Данные на сайте",
+            websiteLead: "Сайт datagateapp.com не использует аналитику, рекламные пиксели и сторонние трекеры. Мы можем обрабатывать:",
+            websiteItems: [
+                "Данные, которые вы указываете в форме контактов (имя, email, сообщение) — только если вы сами отправите письмо через почтовый клиент",
+                "Технические журналы веб-сервера (IP-адрес, user agent, время запроса) для обеспечения безопасности и работоспособности",
+            ],
+            cookiesTitle: "4. Cookies и localStorage",
+            cookiesLead: "На сайте используются следующие категории хранения:",
+            cookiesItems: [
+                "Необходимые: запись вашего выбора по cookies (ключ datagate-consent)",
+                "Предпочтения (только с согласия): выбранная тема (datagate-theme) и язык интерфейса (datagate-language)",
             ],
             notCollectLead: "Мы НЕ собираем:",
             notCollectItems: [
@@ -414,21 +462,42 @@ export const translations: Record<Language, Translation> = {
                 "Личные файлы",
                 "Данные о местоположении",
             ],
-            useTitle: "2. Как мы используем данные",
+            useTitle: "5. Как мы используем данные",
             useItems: [
                 "Аутентификация пользователей",
                 "Установка и поддержка VPN-соединений",
                 "Повышение стабильности и производительности приложения",
                 "Диагностика ошибок и сбоев",
+                "Отображение выбранной темы и языка на сайте (при согласии)",
             ],
-            storageTitle: "3. Хранение данных",
-            storageText: "Токены аутентификации безопасно хранятся на устройстве пользователя. Данные на стороне сервера хранятся на защищённых серверах.",
-            thirdPartyTitle: "4. Сторонние сервисы",
-            thirdPartyText: "Приложение может использовать сторонние сервисы, такие как Google Sign-In и backend-провайдеры инфраструктуры, для работы сервиса.",
-            childrenTitle: "5. Конфиденциальность детей",
-            childrenText: "Приложение не предназначено для детей младше 13 лет. Мы сознательно не собираем персональные данные детей.",
-            contactTitle: "6. Контакты",
-            contactText: "Если у вас есть вопросы по этой Политике конфиденциальности, свяжитесь с нами по адресу:",
+            legalBasisTitle: "6. Правовые основания обработки (GDPR)",
+            legalBasisItems: [
+                "Исполнение договора или преддоговорные меры — для предоставления VPN-сервиса и аккаунта",
+                "Законный интерес — для обеспечения безопасности, диагностики сбоев и защиты инфраструктуры",
+                "Согласие — для сохранения предпочтений сайта (тема, язык) в localStorage",
+                "Юридическая обязанность — когда хранение данных требуется законом",
+            ],
+            storageTitle: "7. Хранение данных",
+            storageText: "Токены аутентификации безопасно хранятся на устройстве пользователя. Данные на стороне сервера хранятся на защищённых серверах. Предпочтения сайта хранятся в браузере до их удаления или отзыва согласия.",
+            rightsTitle: "8. Ваши права по GDPR",
+            rightsLead: "Вы имеете право:",
+            rightsItems: [
+                "Получить доступ к своим персональным данным",
+                "Исправить неточные данные",
+                "Запросить удаление данных («право быть забытым»)",
+                "Ограничить обработку",
+                "Получить данные в переносимом формате",
+                "Возразить против обработки на основании законного интереса",
+                "Отозвать согласие в любое время (не влияет на законность обработки до отзыва)",
+            ],
+            thirdPartyTitle: "9. Сторонние сервисы",
+            thirdPartyText: "Приложение может использовать сторонние сервисы, такие как Google Sign-In и backend-провайдеры инфраструктуры, для работы сервиса. Сайт не передаёт данные рекламным сетям.",
+            childrenTitle: "10. Конфиденциальность детей",
+            childrenText: "Сервис не предназначен для детей младше 13 лет (16 лет в ЕС). Мы сознательно не собираем персональные данные детей.",
+            supervisorTitle: "11. Надзорный орган",
+            supervisorText: "Вы вправе подать жалобу в надзорный орган по защите данных в стране вашего проживания, места работы или предполагаемого нарушения.",
+            contactTitle: "12. Контакты",
+            contactText: "По вопросам этой Политики конфиденциальности и реализации ваших прав свяжитесь с нами:",
             deleteLead: "Чтобы запросить удаление аккаунта и данных, смотрите ",
             deleteLink: "Удаление аккаунта",
         },
@@ -463,7 +532,7 @@ export const translations: Record<Language, Translation> = {
         meta: {
             language: "Language",
             skipToMain: "Skip to main content",
-            lastUpdated: "Last updated: December 2025",
+            lastUpdated: "Last updated: July 2026",
         },
         header: {
             logoTag: "Open-source VPN stack",
@@ -487,6 +556,16 @@ export const translations: Record<Language, Translation> = {
             download: "Download",
             server: "Server",
             privacy: "Privacy Policy",
+            deleteAccount: "Data deletion",
+            cookieSettings: "Cookie settings",
+        },
+        cookieBanner: {
+            title: "We use cookies and localStorage",
+            description:
+                "This site stores your theme and language preferences only after you consent. We do not use analytics or advertising trackers. Learn more in our",
+            acceptAll: "Accept",
+            rejectNonEssential: "Essential only",
+            privacyLink: "Privacy Policy",
         },
         home: {
             eyebrow: "Open-source VPN platform",
@@ -686,15 +765,29 @@ export const translations: Record<Language, Translation> = {
         },
         privacy: {
             title: "Privacy Policy",
-            intro: "DataGate (\"we\", \"our\", or \"us\") operates the DataGate mobile application. We respect your privacy and are committed to protecting your personal data.",
-            collectTitle: "1. Information We Collect",
-            collectLead: "We may collect and process the following data:",
+            intro: "DataGate (\"we\", \"our\", or \"us\") operates the DataGate mobile application, clients, server software, and the datagateapp.com website. We respect your privacy and process personal data in accordance with the General Data Protection Regulation (GDPR) and applicable law.",
+            controllerTitle: "1. Data Controller",
+            controllerText: "The data controller for personal data is the owner of the DataGate project. For data protection inquiries: imkolganov@gmail.com.",
+            collectTitle: "2. Data in Applications and Services",
+            collectLead: "In our applications and related services, we may collect and process the following data:",
             collectItems: [
                 "Authentication data (access tokens, refresh tokens)",
                 "User identifiers (installation ID, external user ID)",
                 "VPN connection metadata (connection state, selected server)",
                 "Crash logs and error diagnostics",
                 "Device and operating system information",
+            ],
+            websiteTitle: "3. Website Data",
+            websiteLead: "The datagateapp.com website does not use analytics, advertising pixels, or third-party trackers. We may process:",
+            websiteItems: [
+                "Information you provide via the contact form (name, email, message) — only if you choose to send an email through your mail client",
+                "Technical web server logs (IP address, user agent, request time) to ensure security and availability",
+            ],
+            cookiesTitle: "4. Cookies and localStorage",
+            cookiesLead: "The website uses the following storage categories:",
+            cookiesItems: [
+                "Essential: your cookie consent choice (datagate-consent key)",
+                "Preferences (with consent only): selected theme (datagate-theme) and interface language (datagate-language)",
             ],
             notCollectLead: "We do NOT collect:",
             notCollectItems: [
@@ -704,21 +797,42 @@ export const translations: Record<Language, Translation> = {
                 "Personal files",
                 "Location data",
             ],
-            useTitle: "2. How We Use Data",
+            useTitle: "5. How We Use Data",
             useItems: [
                 "Authenticate users",
                 "Establish and maintain VPN connections",
                 "Improve application stability and performance",
                 "Diagnose errors and crashes",
+                "Display your chosen theme and language on the website (with consent)",
             ],
-            storageTitle: "3. Data Storage",
-            storageText: "Authentication tokens are stored securely on the user's device. Server-side data is stored on secure servers.",
-            thirdPartyTitle: "4. Third-Party Services",
-            thirdPartyText: "The application may use third-party services such as Google Sign-In and backend infrastructure providers to operate the service.",
-            childrenTitle: "5. Children's Privacy",
-            childrenText: "This application is not intended for children under the age of 13. We do not knowingly collect personal data from children.",
-            contactTitle: "6. Contact",
-            contactText: "If you have any questions about this Privacy Policy, contact us at:",
+            legalBasisTitle: "6. Legal Basis for Processing (GDPR)",
+            legalBasisItems: [
+                "Contract performance or pre-contractual steps — to provide the VPN service and account",
+                "Legitimate interest — to ensure security, diagnose failures, and protect infrastructure",
+                "Consent — to store website preferences (theme, language) in localStorage",
+                "Legal obligation — when retention is required by law",
+            ],
+            storageTitle: "7. Data Storage",
+            storageText: "Authentication tokens are stored securely on the user's device. Server-side data is stored on secure servers. Website preferences are stored in the browser until deleted or consent is withdrawn.",
+            rightsTitle: "8. Your Rights under GDPR",
+            rightsLead: "You have the right to:",
+            rightsItems: [
+                "Access your personal data",
+                "Rectify inaccurate data",
+                "Request erasure of your data (\"right to be forgotten\")",
+                "Restrict processing",
+                "Receive your data in a portable format",
+                "Object to processing based on legitimate interest",
+                "Withdraw consent at any time (without affecting lawfulness of processing before withdrawal)",
+            ],
+            thirdPartyTitle: "9. Third-Party Services",
+            thirdPartyText: "The application may use third-party services such as Google Sign-In and backend infrastructure providers to operate the service. The website does not share data with advertising networks.",
+            childrenTitle: "10. Children's Privacy",
+            childrenText: "The service is not intended for children under 13 (16 in the EU). We do not knowingly collect personal data from children.",
+            supervisorTitle: "11. Supervisory Authority",
+            supervisorText: "You have the right to lodge a complaint with a data protection supervisory authority in your country of residence, workplace, or where an alleged infringement occurred.",
+            contactTitle: "12. Contact",
+            contactText: "For questions about this Privacy Policy and exercising your rights, contact us at:",
             deleteLead: "To request deletion of your account and data, see ",
             deleteLink: "Delete account",
         },
@@ -753,7 +867,7 @@ export const translations: Record<Language, Translation> = {
         meta: {
             language: "Langue",
             skipToMain: "Aller au contenu principal",
-            lastUpdated: "Dernière mise à jour : décembre 2025",
+            lastUpdated: "Dernière mise à jour : juillet 2026",
         },
         header: {
             logoTag: "Stack VPN open source",
@@ -777,6 +891,16 @@ export const translations: Record<Language, Translation> = {
             download: "Télécharger",
             server: "Serveur",
             privacy: "Politique de confidentialité",
+            deleteAccount: "Suppression des données",
+            cookieSettings: "Paramètres cookies",
+        },
+        cookieBanner: {
+            title: "Nous utilisons des cookies et localStorage",
+            description:
+                "Ce site enregistre vos préférences de thème et de langue uniquement après votre consentement. Aucune analyse ni traceur publicitaire n'est utilisé. En savoir plus dans notre",
+            acceptAll: "Accepter",
+            rejectNonEssential: "Essentiels uniquement",
+            privacyLink: "Politique de confidentialité",
         },
         home: {
             eyebrow: "Plateforme VPN open source",
@@ -949,15 +1073,29 @@ export const translations: Record<Language, Translation> = {
         },
         privacy: {
             title: "Politique de confidentialité",
-            intro: "DataGate (« nous », « notre », « nos ») exploite l'application mobile DataGate. Nous respectons votre vie privée et nous engageons à protéger vos données personnelles.",
-            collectTitle: "1. Informations que nous collectons",
-            collectLead: "Nous pouvons collecter et traiter les données suivantes :",
+            intro: "DataGate (« nous », « notre », « nos ») exploite l'application mobile DataGate, les clients, le logiciel serveur et le site datagateapp.com. Nous respectons votre vie privée et traitons les données personnelles conformément au Règlement général sur la protection des données (RGPD) et à la loi applicable.",
+            controllerTitle: "1. Responsable du traitement",
+            controllerText: "Le responsable du traitement des données personnelles est le propriétaire du projet DataGate. Pour toute question relative à la protection des données : imkolganov@gmail.com.",
+            collectTitle: "2. Données dans les applications et services",
+            collectLead: "Dans nos applications et services associés, nous pouvons collecter et traiter les données suivantes :",
             collectItems: [
                 "Données d'authentification (access tokens, refresh tokens)",
                 "Identifiants utilisateur (installation ID, external user ID)",
                 "Métadonnées de connexion VPN (état de la connexion, serveur sélectionné)",
                 "Journaux de crash et diagnostics d'erreur",
                 "Informations sur l'appareil et le système d'exploitation",
+            ],
+            websiteTitle: "3. Données du site web",
+            websiteLead: "Le site datagateapp.com n'utilise pas d'analytique, de pixels publicitaires ni de traceurs tiers. Nous pouvons traiter :",
+            websiteItems: [
+                "Les informations que vous fournissez via le formulaire de contact (nom, email, message) — uniquement si vous choisissez d'envoyer un email via votre client mail",
+                "Les journaux techniques du serveur web (adresse IP, user agent, heure de la requête) pour assurer la sécurité et la disponibilité",
+            ],
+            cookiesTitle: "4. Cookies et localStorage",
+            cookiesLead: "Le site utilise les catégories de stockage suivantes :",
+            cookiesItems: [
+                "Essentiels : votre choix de consentement aux cookies (clé datagate-consent)",
+                "Préférences (avec consentement uniquement) : thème sélectionné (datagate-theme) et langue de l'interface (datagate-language)",
             ],
             notCollectLead: "Nous ne collectons PAS :",
             notCollectItems: [
@@ -967,21 +1105,42 @@ export const translations: Record<Language, Translation> = {
                 "Fichiers personnels",
                 "Données de localisation",
             ],
-            useTitle: "2. Comment nous utilisons les données",
+            useTitle: "5. Comment nous utilisons les données",
             useItems: [
                 "Authentifier les utilisateurs",
                 "Établir et maintenir les connexions VPN",
                 "Améliorer la stabilité et les performances de l'application",
                 "Diagnostiquer les erreurs et les crashs",
+                "Afficher le thème et la langue choisis sur le site (avec consentement)",
             ],
-            storageTitle: "3. Stockage des données",
-            storageText: "Les jetons d'authentification sont stockés de manière sécurisée sur l'appareil de l'utilisateur. Les données côté serveur sont stockées sur des serveurs sécurisés.",
-            thirdPartyTitle: "4. Services tiers",
-            thirdPartyText: "L'application peut utiliser des services tiers tels que Google Sign-In et des fournisseurs d'infrastructure backend pour fonctionner.",
-            childrenTitle: "5. Vie privée des enfants",
-            childrenText: "Cette application n'est pas destinée aux enfants de moins de 13 ans. Nous ne collectons pas sciemment de données personnelles concernant des enfants.",
-            contactTitle: "6. Contact",
-            contactText: "Si vous avez des questions concernant cette politique de confidentialité, contactez-nous à l'adresse suivante :",
+            legalBasisTitle: "6. Base juridique du traitement (RGPD)",
+            legalBasisItems: [
+                "Exécution du contrat ou mesures précontractuelles — pour fournir le service VPN et le compte",
+                "Intérêt légitime — pour assurer la sécurité, diagnostiquer les pannes et protéger l'infrastructure",
+                "Consentement — pour stocker les préférences du site (thème, langue) dans localStorage",
+                "Obligation légale — lorsque la conservation est exigée par la loi",
+            ],
+            storageTitle: "7. Stockage des données",
+            storageText: "Les jetons d'authentification sont stockés de manière sécurisée sur l'appareil de l'utilisateur. Les données côté serveur sont stockées sur des serveurs sécurisés. Les préférences du site sont stockées dans le navigateur jusqu'à leur suppression ou au retrait du consentement.",
+            rightsTitle: "8. Vos droits au titre du RGPD",
+            rightsLead: "Vous avez le droit de :",
+            rightsItems: [
+                "Accéder à vos données personnelles",
+                "Rectifier les données inexactes",
+                "Demander l'effacement de vos données (droit à l'oubli)",
+                "Limiter le traitement",
+                "Recevoir vos données dans un format portable",
+                "Vous opposer au traitement fondé sur l'intérêt légitime",
+                "Retirer votre consentement à tout moment (sans affecter la licéité du traitement antérieur)",
+            ],
+            thirdPartyTitle: "9. Services tiers",
+            thirdPartyText: "L'application peut utiliser des services tiers tels que Google Sign-In et des fournisseurs d'infrastructure backend pour fonctionner. Le site ne partage pas de données avec des réseaux publicitaires.",
+            childrenTitle: "10. Vie privée des enfants",
+            childrenText: "Le service n'est pas destiné aux enfants de moins de 13 ans (16 ans dans l'UE). Nous ne collectons pas sciemment de données personnelles concernant des enfants.",
+            supervisorTitle: "11. Autorité de contrôle",
+            supervisorText: "Vous avez le droit d'introduire une réclamation auprès d'une autorité de protection des données dans votre pays de résidence, de travail ou du lieu de la violation présumée.",
+            contactTitle: "12. Contact",
+            contactText: "Pour toute question concernant cette politique de confidentialité et l'exercice de vos droits, contactez-nous à l'adresse suivante :",
             deleteLead: "Pour demander la suppression de votre compte et de vos données, consultez ",
             deleteLink: "Suppression du compte",
         },
@@ -1016,7 +1175,7 @@ export const translations: Record<Language, Translation> = {
         meta: {
             language: "Sprache",
             skipToMain: "Zum Hauptinhalt springen",
-            lastUpdated: "Zuletzt aktualisiert: Dezember 2025",
+            lastUpdated: "Zuletzt aktualisiert: Juli 2026",
         },
         header: {
             logoTag: "Open-Source-VPN-Stack",
@@ -1040,6 +1199,16 @@ export const translations: Record<Language, Translation> = {
             download: "Download",
             server: "Server",
             privacy: "Datenschutz",
+            deleteAccount: "Datenlöschung",
+            cookieSettings: "Cookie-Einstellungen",
+        },
+        cookieBanner: {
+            title: "Wir verwenden Cookies und localStorage",
+            description:
+                "Diese Website speichert Ihre Theme- und Spracheinstellungen nur nach Ihrer Einwilligung. Es werden keine Analyse- oder Werbe-Tracker verwendet. Mehr in unserer",
+            acceptAll: "Akzeptieren",
+            rejectNonEssential: "Nur notwendige",
+            privacyLink: "Datenschutzerklärung",
         },
         home: {
             eyebrow: "Open-Source-VPN-Plattform",
@@ -1212,15 +1381,29 @@ export const translations: Record<Language, Translation> = {
         },
         privacy: {
             title: "Datenschutzerklärung",
-            intro: "DataGate („wir“, „uns“, „unser“) betreibt die mobile Anwendung DataGate. Wir respektieren Ihre Privatsphäre und verpflichten uns zum Schutz Ihrer personenbezogenen Daten.",
-            collectTitle: "1. Welche Daten wir erfassen",
-            collectLead: "Wir können folgende Daten erfassen und verarbeiten:",
+            intro: "DataGate („wir“, „uns“, „unser“) betreibt die mobile Anwendung DataGate, Clients, Server-Software und die Website datagateapp.com. Wir respektieren Ihre Privatsphäre und verarbeiten personenbezogene Daten gemäß der Datenschutz-Grundverordnung (DSGVO) und geltendem Recht.",
+            controllerTitle: "1. Verantwortlicher",
+            controllerText: "Verantwortlicher für personenbezogene Daten ist der Eigentümer des DataGate-Projekts. Bei Datenschutzanfragen: imkolganov@gmail.com.",
+            collectTitle: "2. Daten in Anwendungen und Diensten",
+            collectLead: "In unseren Anwendungen und zugehörigen Diensten können wir folgende Daten erfassen und verarbeiten:",
             collectItems: [
                 "Authentifizierungsdaten (Access Tokens, Refresh Tokens)",
                 "Benutzerkennungen (Installation ID, External User ID)",
                 "VPN-Verbindungsmetadaten (Verbindungsstatus, ausgewählter Server)",
                 "Crash-Logs und Fehlerdiagnosen",
                 "Geräte- und Betriebssysteminformationen",
+            ],
+            websiteTitle: "3. Website-Daten",
+            websiteLead: "Die Website datagateapp.com verwendet keine Analyse-, Werbe-Pixel oder Drittanbieter-Tracker. Wir können verarbeiten:",
+            websiteItems: [
+                "Angaben im Kontaktformular (Name, E-Mail, Nachricht) — nur wenn Sie eine E-Mail über Ihren Mail-Client senden",
+                "Technische Webserver-Logs (IP-Adresse, User Agent, Anfragezeit) zur Sicherheit und Verfügbarkeit",
+            ],
+            cookiesTitle: "4. Cookies und localStorage",
+            cookiesLead: "Die Website verwendet folgende Speicherkategorien:",
+            cookiesItems: [
+                "Notwendig: Ihre Cookie-Einwilligung (Schlüssel datagate-consent)",
+                "Präferenzen (nur mit Einwilligung): gewähltes Theme (datagate-theme) und Sprache (datagate-language)",
             ],
             notCollectLead: "Wir erfassen NICHT:",
             notCollectItems: [
@@ -1230,21 +1413,42 @@ export const translations: Record<Language, Translation> = {
                 "Persönliche Dateien",
                 "Standortdaten",
             ],
-            useTitle: "2. Wie wir Daten verwenden",
+            useTitle: "5. Wie wir Daten verwenden",
             useItems: [
                 "Benutzer authentifizieren",
                 "VPN-Verbindungen herstellen und aufrechterhalten",
                 "Stabilität und Leistung der Anwendung verbessern",
                 "Fehler und Abstürze diagnostizieren",
+                "Gewähltes Theme und Sprache auf der Website anzeigen (mit Einwilligung)",
             ],
-            storageTitle: "3. Datenspeicherung",
-            storageText: "Authentifizierungstoken werden sicher auf dem Gerät des Benutzers gespeichert. Serverseitige Daten werden auf gesicherten Servern gespeichert.",
-            thirdPartyTitle: "4. Dienste Dritter",
-            thirdPartyText: "Die Anwendung kann Dienste Dritter wie Google Sign-In und Backend-Infrastruktur-Anbieter nutzen, um den Dienst bereitzustellen.",
-            childrenTitle: "5. Datenschutz von Kindern",
-            childrenText: "Diese Anwendung ist nicht für Kinder unter 13 Jahren bestimmt. Wir erfassen wissentlich keine personenbezogenen Daten von Kindern.",
-            contactTitle: "6. Kontakt",
-            contactText: "Wenn Sie Fragen zu dieser Datenschutzerklärung haben, kontaktieren Sie uns unter:",
+            legalBasisTitle: "6. Rechtsgrundlage der Verarbeitung (DSGVO)",
+            legalBasisItems: [
+                "Vertragserfüllung oder vorvertragliche Maßnahmen — Bereitstellung des VPN-Dienstes und Kontos",
+                "Berechtigtes Interesse — Sicherheit, Fehlerdiagnose und Schutz der Infrastruktur",
+                "Einwilligung — Speicherung von Website-Präferenzen (Theme, Sprache) in localStorage",
+                "Rechtliche Verpflichtung — wenn die Aufbewahrung gesetzlich vorgeschrieben ist",
+            ],
+            storageTitle: "7. Datenspeicherung",
+            storageText: "Authentifizierungstoken werden sicher auf dem Gerät des Benutzers gespeichert. Serverseitige Daten werden auf gesicherten Servern gespeichert. Website-Präferenzen werden im Browser gespeichert, bis sie gelöscht werden oder die Einwilligung widerrufen wird.",
+            rightsTitle: "8. Ihre Rechte nach DSGVO",
+            rightsLead: "Sie haben das Recht:",
+            rightsItems: [
+                "Auf Ihre personenbezogenen Daten zuzugreifen",
+                "Unrichtige Daten zu berichtigen",
+                "Die Löschung Ihrer Daten zu verlangen (Recht auf Vergessenwerden)",
+                "Die Verarbeitung einzuschränken",
+                "Ihre Daten in einem übertragbaren Format zu erhalten",
+                "Der Verarbeitung auf Grundlage berechtigten Interesses zu widersprechen",
+                "Ihre Einwilligung jederzeit zu widerrufen (ohne die Rechtmäßigkeit der vorherigen Verarbeitung zu beeinträchtigen)",
+            ],
+            thirdPartyTitle: "9. Dienste Dritter",
+            thirdPartyText: "Die Anwendung kann Dienste Dritter wie Google Sign-In und Backend-Infrastruktur-Anbieter nutzen. Die Website gibt keine Daten an Werbenetzwerke weiter.",
+            childrenTitle: "10. Datenschutz von Kindern",
+            childrenText: "Der Dienst ist nicht für Kinder unter 13 Jahren (16 in der EU) bestimmt. Wir erfassen wissentlich keine personenbezogenen Daten von Kindern.",
+            supervisorTitle: "11. Aufsichtsbehörde",
+            supervisorText: "Sie haben das Recht, bei einer Datenschutzaufsichtsbehörde in Ihrem Wohnsitz-, Arbeits- oder Ort des mutmaßlichen Verstoßes Beschwerde einzulegen.",
+            contactTitle: "12. Kontakt",
+            contactText: "Bei Fragen zu dieser Datenschutzerklärung und zur Ausübung Ihrer Rechte kontaktieren Sie uns unter:",
             deleteLead: "Um die Löschung Ihres Kontos und Ihrer Daten zu beantragen, siehe ",
             deleteLink: "Konto löschen",
         },
@@ -1279,7 +1483,7 @@ export const translations: Record<Language, Translation> = {
         meta: {
             language: "Γλώσσα",
             skipToMain: "Μετάβαση στο κύριο περιεχόμενο",
-            lastUpdated: "Τελευταία ενημέρωση: Δεκέμβριος 2025",
+            lastUpdated: "Τελευταία ενημέρωση: Ιούλιος 2026",
         },
         header: {
             logoTag: "Open-source VPN stack",
@@ -1303,6 +1507,16 @@ export const translations: Record<Language, Translation> = {
             download: "Λήψη",
             server: "Server",
             privacy: "Πολιτική απορρήτου",
+            deleteAccount: "Διαγραφή δεδομένων",
+            cookieSettings: "Ρυθμίσεις cookies",
+        },
+        cookieBanner: {
+            title: "Χρησιμοποιούμε cookies και localStorage",
+            description:
+                "Αυτό το site αποθηκεύει τις προτιμήσεις θέματος και γλώσσας μόνο μετά τη συγκατάθεσή σας. Δεν χρησιμοποιούμε analytics ή διαφημιστικά trackers. Μάθετε περισσότερα στην",
+            acceptAll: "Αποδοχή",
+            rejectNonEssential: "Μόνο απαραίτητα",
+            privacyLink: "Πολιτική απορρήτου",
         },
         home: {
             eyebrow: "Open-source VPN πλατφόρμα",
@@ -1475,15 +1689,29 @@ export const translations: Record<Language, Translation> = {
         },
         privacy: {
             title: "Πολιτική απορρήτου",
-            intro: "Το DataGate («εμείς», «μας») λειτουργεί την mobile εφαρμογή DataGate. Σεβόμαστε την ιδιωτικότητά σας και δεσμευόμαστε να προστατεύουμε τα προσωπικά σας δεδομένα.",
-            collectTitle: "1. Ποιες πληροφορίες συλλέγουμε",
-            collectLead: "Ενδέχεται να συλλέγουμε και να επεξεργαζόμαστε τα παρακάτω δεδομένα:",
+            intro: "Το DataGate («εμείς», «μας») λειτουργεί την mobile εφαρμογή DataGate, clients, server λογισμικό και τον ιστότοπο datagateapp.com. Σεβόμαστε την ιδιωτικότητά σας και επεξεργαζόμαστε προσωπικά δεδομένα σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR) και την ισχύουσα νομοθεσία.",
+            controllerTitle: "1. Υπεύθυνος επεξεργασίας",
+            controllerText: "Υπεύθυνος επεξεργασίας προσωπικών δεδομένων είναι ο ιδιοκτήτης του έργου DataGate. Για θέματα προστασίας δεδομένων: imkolganov@gmail.com.",
+            collectTitle: "2. Δεδομένα σε εφαρμογές και υπηρεσίες",
+            collectLead: "Στις εφαρμογές και τις σχετικές υπηρεσίες μας, ενδέχεται να συλλέγουμε και να επεξεργαζόμαστε τα παρακάτω δεδομένα:",
             collectItems: [
                 "Δεδομένα αυθεντικοποίησης (access tokens, refresh tokens)",
                 "Αναγνωριστικά χρήστη (installation ID, external user ID)",
                 "Μεταδεδομένα VPN σύνδεσης (κατάσταση σύνδεσης, επιλεγμένος server)",
                 "Crash logs και διαγνωστικά σφαλμάτων",
                 "Πληροφορίες συσκευής και λειτουργικού συστήματος",
+            ],
+            websiteTitle: "3. Δεδομένα ιστότοπου",
+            websiteLead: "Ο ιστότοπος datagateapp.com δεν χρησιμοποιεί analytics, διαφημιστικά pixels ή trackers τρίτων. Ενδέχεται να επεξεργαζόμαστε:",
+            websiteItems: [
+                "Πληροφορίες που παρέχετε μέσω της φόρμας επικοινωνίας (όνομα, email, μήνυμα) — μόνο αν επιλέξετε να στείλετε email μέσω του mail client σας",
+                "Τεχνικά logs web server (IP διεύθυνση, user agent, ώρα αιτήματος) για ασφάλεια και διαθεσιμότητα",
+            ],
+            cookiesTitle: "4. Cookies και localStorage",
+            cookiesLead: "Ο ιστότοπος χρησιμοποιεί τις ακόλουθες κατηγορίες αποθήκευσης:",
+            cookiesItems: [
+                "Απαραίτητα: η επιλογή συγκατάθεσης cookies (κλειδί datagate-consent)",
+                "Προτιμήσεις (μόνο με συγκατάθεση): επιλεγμένο θέμα (datagate-theme) και γλώσσα διεπαφής (datagate-language)",
             ],
             notCollectLead: "ΔΕΝ συλλέγουμε:",
             notCollectItems: [
@@ -1493,21 +1721,42 @@ export const translations: Record<Language, Translation> = {
                 "Προσωπικά αρχεία",
                 "Δεδομένα τοποθεσίας",
             ],
-            useTitle: "2. Πώς χρησιμοποιούμε τα δεδομένα",
+            useTitle: "5. Πώς χρησιμοποιούμε τα δεδομένα",
             useItems: [
                 "Αυθεντικοποίηση χρηστών",
                 "Δημιουργία και διατήρηση VPN συνδέσεων",
                 "Βελτίωση σταθερότητας και απόδοσης της εφαρμογής",
                 "Διάγνωση σφαλμάτων και κρασαρισμάτων",
+                "Εμφάνιση του επιλεγμένου θέματος και γλώσσας στον ιστότοπο (με συγκατάθεση)",
             ],
-            storageTitle: "3. Αποθήκευση δεδομένων",
-            storageText: "Τα authentication tokens αποθηκεύονται με ασφάλεια στη συσκευή του χρήστη. Τα δεδομένα στην πλευρά του server αποθηκεύονται σε ασφαλείς servers.",
-            thirdPartyTitle: "4. Υπηρεσίες τρίτων",
-            thirdPartyText: "Η εφαρμογή μπορεί να χρησιμοποιεί υπηρεσίες τρίτων όπως Google Sign-In και backend infrastructure providers για τη λειτουργία της υπηρεσίας.",
-            childrenTitle: "5. Απόρρητο παιδιών",
-            childrenText: "Η εφαρμογή δεν προορίζεται για παιδιά κάτω των 13 ετών. Δεν συλλέγουμε εν γνώσει μας προσωπικά δεδομένα από παιδιά.",
-            contactTitle: "6. Επικοινωνία",
-            contactText: "Αν έχετε ερωτήσεις σχετικά με αυτή την Πολιτική απορρήτου, επικοινωνήστε μαζί μας στο:",
+            legalBasisTitle: "6. Νομική βάση επεξεργασίας (GDPR)",
+            legalBasisItems: [
+                "Εκτέλεση σύμβασης ή προσυμβατικά μέτρα — για την παροχή της υπηρεσίας VPN και του λογαριασμού",
+                "Έννομο συμφέρον — για ασφάλεια, διάγνωση σφαλμάτων και προστασία της υποδομής",
+                "Συγκατάθεση — για αποθήκευση προτιμήσεων ιστότοπου (θέμα, γλώσσα) στο localStorage",
+                "Νομική υποχρέωση — όταν η διατήρηση απαιτείται από τον νόμο",
+            ],
+            storageTitle: "7. Αποθήκευση δεδομένων",
+            storageText: "Τα authentication tokens αποθηκεύονται με ασφάλεια στη συσκευή του χρήστη. Τα δεδομένα στην πλευρά του server αποθηκεύονται σε ασφαλείς servers. Οι προτιμήσεις ιστότοπου αποθηκεύονται στον browser μέχρι να διαγραφούν ή να ανακληθεί η συγκατάθεση.",
+            rightsTitle: "8. Τα δικαιώματά σας βάσει GDPR",
+            rightsLead: "Έχετε το δικαίωμα να:",
+            rightsItems: [
+                "Αποκτήσετε πρόσβαση στα προσωπικά σας δεδομένα",
+                "Διορθώσετε ανακριβή δεδομένα",
+                "Ζητήσετε διαγραφή των δεδομένων σας (δικαίωμα στη λήθη)",
+                "Περιορίσετε την επεξεργασία",
+                "Λάβετε τα δεδομένα σας σε φορητή μορφή",
+                "Αντιταχθείτε στην επεξεργασία βάσει έννομου συμφέροντος",
+                "Ανακαλέσετε τη συγκατάθεσή σας ανά πάσα στιγμή (χωρίς να επηρεάζεται η νομιμότητα της προηγούμενης επεξεργασίας)",
+            ],
+            thirdPartyTitle: "9. Υπηρεσίες τρίτων",
+            thirdPartyText: "Η εφαρμογή μπορεί να χρησιμοποιεί υπηρεσίες τρίτων όπως Google Sign-In και backend infrastructure providers. Ο ιστότοπος δεν μοιράζεται δεδομένα με διαφημιστικά δίκτυα.",
+            childrenTitle: "10. Απόρρητο παιδιών",
+            childrenText: "Η υπηρεσία δεν προορίζεται για παιδιά κάτω των 13 ετών (16 στην ΕΕ). Δεν συλλέγουμε εν γνώσει μας προσωπικά δεδομένα από παιδιά.",
+            supervisorTitle: "11. Εποπτική αρχή",
+            supervisorText: "Έχετε το δικαίωμα να υποβάλετε καταγγελία σε εποπτική αρχή προστασίας δεδομένων στη χώρα διαμονής, εργασίας ή του εικοζόμενου παραβίασης.",
+            contactTitle: "12. Επικοινωνία",
+            contactText: "Για ερωτήσεις σχετικά με αυτή την Πολιτική απορρήτου και την άσκηση των δικαιωμάτων σας, επικοινωνήστε μαζί μας στο:",
             deleteLead: "Για να ζητήσετε διαγραφή λογαριασμού και δεδομένων, δείτε ",
             deleteLink: "Διαγραφή λογαριασμού",
         },
