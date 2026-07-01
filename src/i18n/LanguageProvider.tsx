@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { hasPreferencesConsent } from "../consent/consent";
+import { useConsent } from "../consent/ConsentProvider";
 import { Language, SUPPORTED_LANGUAGES, Translation, translations } from "./translations";
 
 type LanguageContextValue = {
@@ -16,10 +18,12 @@ function getInitialLanguage(): Language {
         return "en";
     }
 
-    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (hasPreferencesConsent()) {
+        const saved = window.localStorage.getItem(STORAGE_KEY);
 
-    if (saved && SUPPORTED_LANGUAGES.includes(saved as Language)) {
-        return saved as Language;
+        if (saved && SUPPORTED_LANGUAGES.includes(saved as Language)) {
+            return saved as Language;
+        }
     }
 
     const browserLanguage = window.navigator.language.slice(0, 2) as Language;
@@ -32,12 +36,16 @@ function getInitialLanguage(): Language {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }): React.JSX.Element {
+    const { preferences: preferencesConsent } = useConsent();
     const [language, setLanguage] = useState<Language>(getInitialLanguage);
 
     useEffect(() => {
-        window.localStorage.setItem(STORAGE_KEY, language);
         document.documentElement.lang = language;
-    }, [language]);
+
+        if (preferencesConsent === true) {
+            window.localStorage.setItem(STORAGE_KEY, language);
+        }
+    }, [language, preferencesConsent]);
 
     const value = useMemo(
         () => ({
