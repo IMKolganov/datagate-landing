@@ -15,10 +15,29 @@ export function PrivacyPage(): React.JSX.Element {
             <div className="prose">
                 <p>{t.privacy.intro}</p>
 
+                <h2>{t.privacy.controllerTitle}</h2>
+                <p>{t.privacy.controllerText}</p>
+
                 <h2>{t.privacy.collectTitle}</h2>
                 <p>{t.privacy.collectLead}</p>
                 <ul>
                     {t.privacy.collectItems.map((item) => (
+                        <li key={item}>{item}</li>
+                    ))}
+                </ul>
+
+                <h2>{t.privacy.websiteTitle}</h2>
+                <p>{t.privacy.websiteLead}</p>
+                <ul>
+                    {t.privacy.websiteItems.map((item) => (
+                        <li key={item}>{item}</li>
+                    ))}
+                </ul>
+
+                <h2>{t.privacy.cookiesTitle}</h2>
+                <p>{t.privacy.cookiesLead}</p>
+                <ul>
+                    {t.privacy.cookiesItems.map((item) => (
                         <li key={item}>{item}</li>
                     ))}
                 </ul>
@@ -37,14 +56,32 @@ export function PrivacyPage(): React.JSX.Element {
                     ))}
                 </ul>
 
+                <h2>{t.privacy.legalBasisTitle}</h2>
+                <ul>
+                    {t.privacy.legalBasisItems.map((item) => (
+                        <li key={item}>{item}</li>
+                    ))}
+                </ul>
+
                 <h2>{t.privacy.storageTitle}</h2>
                 <p>{t.privacy.storageText}</p>
+
+                <h2>{t.privacy.rightsTitle}</h2>
+                <p>{t.privacy.rightsLead}</p>
+                <ul>
+                    {t.privacy.rightsItems.map((item) => (
+                        <li key={item}>{item}</li>
+                    ))}
+                </ul>
 
                 <h2>{t.privacy.thirdPartyTitle}</h2>
                 <p>{t.privacy.thirdPartyText}</p>
 
                 <h2>{t.privacy.childrenTitle}</h2>
                 <p>{t.privacy.childrenText}</p>
+
+                <h2>{t.privacy.supervisorTitle}</h2>
+                <p>{t.privacy.supervisorText}</p>
 
                 <h2>{t.privacy.contactTitle}</h2>
                 <p>

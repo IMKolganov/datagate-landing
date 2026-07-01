@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { hasPreferencesConsent } from "../consent/consent";
+import { useConsent } from "../consent/ConsentProvider";
 
 export type Theme = "dark" | "light";
 
@@ -22,10 +24,12 @@ function getInitialTheme(): Theme {
         return "dark";
     }
 
-    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (hasPreferencesConsent()) {
+        const saved = window.localStorage.getItem(STORAGE_KEY);
 
-    if (saved === "light" || saved === "dark") {
-        return saved;
+        if (saved === "light" || saved === "dark") {
+            return saved;
+        }
     }
 
     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
@@ -46,12 +50,16 @@ function applyTheme(theme: Theme): void {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }): React.JSX.Element {
+    const { preferences: preferencesConsent } = useConsent();
     const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
     useEffect(() => {
         applyTheme(theme);
-        window.localStorage.setItem(STORAGE_KEY, theme);
-    }, [theme]);
+
+        if (preferencesConsent === true) {
+            window.localStorage.setItem(STORAGE_KEY, theme);
+        }
+    }, [theme, preferencesConsent]);
 
     const value = useMemo(
         () => ({

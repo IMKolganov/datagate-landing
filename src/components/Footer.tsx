@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useConsent } from "../consent/ConsentProvider";
 import { ROUTES } from "../constants/routes";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { appVersion } from "../version";
@@ -10,6 +11,7 @@ const GITHUB_URL = "https://github.com/IMKolganov";
 export function Footer(): React.JSX.Element {
     const year = new Date().getFullYear();
     const { t } = useLanguage();
+    const { openSettings } = useConsent();
 
     return (
         <footer className={styles.footer} role="contentinfo">
@@ -41,6 +43,12 @@ export function Footer(): React.JSX.Element {
                     <Link to={ROUTES.PRIVACY} className={styles.link}>
                         {t.footer.privacy}
                     </Link>
+                    <Link to={ROUTES.DELETE_ACCOUNT} className={styles.link}>
+                        {t.footer.deleteAccount}
+                    </Link>
+                    <button type="button" className={styles.linkButton} onClick={openSettings}>
+                        {t.footer.cookieSettings}
+                    </button>
                 </div>
             </div>
         </footer>

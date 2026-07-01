@@ -12,8 +12,19 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <script>
     (function () {
+      var consentKey = "datagate-consent";
+      var consentRaw = localStorage.getItem(consentKey);
+      var allowPreferences = false;
+
+      if (consentRaw) {
+        try {
+          var consent = JSON.parse(consentRaw);
+          allowPreferences = consent.version === 1 && consent.preferences === true;
+        } catch (error) {}
+      }
+
       var key = "datagate-theme";
-      var saved = localStorage.getItem(key);
+      var saved = allowPreferences ? localStorage.getItem(key) : null;
       var theme =
         saved === "light" || saved === "dark"
           ? saved

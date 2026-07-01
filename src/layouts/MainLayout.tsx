@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { CookieBanner } from "../components/CookieBanner";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { useLanguage } from "../i18n/LanguageProvider";
@@ -27,6 +28,7 @@ export function MainLayout(): React.JSX.Element {
                 </div>
             </main>
             <Footer />
+            <CookieBanner />
         </div>
     );
 }
